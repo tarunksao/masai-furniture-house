@@ -1,6 +1,6 @@
 # melted-group-7444
 
-### Alotted website :- [zivame.com](https://www.zivame.com/)
+### Alotted website :- [ikea.com](https://www.ikea.com/)
 
 # Project Members:- 
   1. fw20_1259 - Tarun Kumar Sao (Team Lead)
