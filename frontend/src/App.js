@@ -7,8 +7,7 @@ import { ProductPage } from './Components/Product';
 
 function App() {
   return (
-    <Box my={10} color='darkolivegreen'>
-      <Heading textAlign='center'> MFH - Masai Furniture House</Heading>
+    <Box>
       <Top/>
       <AllRoutes_NS/>   
     </Box>
