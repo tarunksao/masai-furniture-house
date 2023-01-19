@@ -1,4 +1,4 @@
-import * as types from "./admin.actions";
+import * as types from "./admin.types";
 
 const initState = {
   adminData: {},
@@ -46,7 +46,6 @@ export const adminReducer = (state = initState, action) => {
         successfullyCreated: true,
         createAccountError: false,
         isAuth: false,
-        adminData: action.payload,
       };
 
     case types.CREATE_FAILURE:
