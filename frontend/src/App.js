@@ -1,8 +1,10 @@
-import "./App.css";
-import { Box, Heading } from "@chakra-ui/react";
-import Top from "./Components/Top";
-import AllRoutes_NS from "./Niranjan/AllRoutes_NS";
-import { ProductPage } from "./Components/Product";
+
+import './App.css';
+import {Routes,Route} from "react-router-dom"
+import { Box } from '@chakra-ui/react';
+import Top from './Components/Top';
+import AllRoutes_NS from './Niranjan/AllRoutes_NS';
+import SinglePage from './Components/SinglePage';
 import AdminRoutes from "./Pages/AdminRoutes";
 
 function App() {
@@ -12,6 +14,10 @@ function App() {
       <AllRoutes_NS /> */}
       <AdminRoutes />
     </Box>
+      //    <Routes>
+      //   <Route to ="/top" element ={<Top/>}></Route>
+      //   <Route path="/product/:id" element={<SinglePage/>} />
+      // </Routes> 
   );
 }
 
