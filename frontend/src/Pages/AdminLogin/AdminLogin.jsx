@@ -8,8 +8,11 @@ import {
   Image,
   useToast,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "./images/logo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { Loginfunction } from "../../redux/admin/admin.actions";
 
 const AdminLogin = () => {
   const [adminDetail, setAdminDetail] = useState({
@@ -18,7 +21,30 @@ const AdminLogin = () => {
     password: "admin@MFH",
   });
 
+  const { isAuth } = useSelector((state) => {
+    return {
+      isAuth: state.admin.isAuth,
+    };
+  });
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const toast = useToast();
+
+  useEffect(() => {
+    if (isAuth) {
+      toast({
+        title: `LogIn Successfull`,
+        status: "success",
+        duration: 1000,
+        position: "top",
+        isClosable: true,
+      });
+      setTimeout(() => {
+        navigate("/admin/dashboard");
+      }, 1500);
+    }
+  }, [isAuth, navigate, toast]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,8 +72,15 @@ const AdminLogin = () => {
         isClosable: true,
         position: "top",
       });
+    } else {
+      console.log(adminDetail);
+      dispatch(Loginfunction(adminDetail));
+      setAdminDetail({
+        adminName: "Admin",
+        email: "admin@MFHadmin.com",
+        password: "admin@MFH",
+      });
     }
-    console.log(adminDetail);
   };
 
   return (
@@ -82,7 +115,7 @@ const AdminLogin = () => {
         <Box></Box>
       </Box>
 
-      <Box>
+      <Box textAlign="center">
         <Text
           fontSize={{ base: "lg", sm: "2xl", md: "4xl", lg: "6xl" }}
           fontWeight="600"
