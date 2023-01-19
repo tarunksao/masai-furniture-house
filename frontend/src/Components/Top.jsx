@@ -1,11 +1,24 @@
 import React from 'react'
 import "./Top.css";
 import Filter from './Filter';
-import { Box, Button, } from "@chakra-ui/react";
+
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Box, Button, Flex, Grid, Select, Spacer, Text, boxShadow, border, borderColor, borderRadius } from "@chakra-ui/react";
 
 import axios from 'axios'
 import { ProductPage } from './Product';
 const Top = () => {
+
+    const [data, setData] = useState([])
+    const [brand, setBrand] = useState("")
+    const [category, setCategory] = useState("")
+    const [color, setColor] = useState("")
+    const [order, setOrder] = useState("")
+    const [showMore, setShowMore] = useState(false);
+    const location = useLocation()
+
+
 
 
     return (
@@ -17,32 +30,33 @@ const Top = () => {
             </div>
             {/* ................................. */}
             <div className='heading' style={{ color: "black" }}>
-                <h1>Gaming furniture</h1>
+                <h1>Furniture</h1>
             </div>
 
             {/* .......................................... */}
             <div className='vn-8-grid'>
                 <div>
-                    <img className='img' src='https://www.ikea.com/global/assets/navigation/images/gaming-desk-chair-sets-56516.jpeg?imwidth=400' />
-                    <div className='vn__nav__title'><p>Desk for Gaming</p></div>
+                    <img className='img' src="https://www.ikea.com/in/en/images/products/blakullen-uph-bed-frame-with-corner-headboard-knisa-medium-blue__0995498_pe821743_s5.jpg?f=xxs" />
+                    <div className='vn__nav__title'><p>2-seat sofa</p></div>
                 </div>
                 <div>
-                    <img className='img' src='https://www.ikea.com/global/assets/navigation/images/gaming-desk-chair-sets-56516.jpeg?imwidth=400' />
-                    <div className='vn__nav__title'><p>Gaming Chairs</p></div>
+                    <img className='img' src="https://www.ikea.com/in/en/images/products/friheten-corner-sofa-bed-with-storage-hyllie-dark-grey__0690261_pe723182_s5.jpg?f=xxs" />
+                    <div className='vn__nav__title'><p>Corner sofa-bed with storage</p></div>
                 </div>
                 <div>
-                    <img className='img' src='https://www.ikea.com/global/assets/navigation/images/gaming-desk-chair-sets-56516.jpeg?imwidth=400' />
-                    <div className='vn__nav__title'><p>Gaming accesories</p></div>
+                    <img className='img' src="https://www.ikea.com/in/en/images/products/kura-bed-curtain-market-stall-pattern__0979044_pe814403_s5.jpg?f=xxs" />
+                    <div className='vn__nav__title'><p>Bed curtain</p></div>
                 </div>
                 <div>
-                    <img className='img' src='https://www.ikea.com/global/assets/navigation/images/gaming-desk-chair-sets-56516.jpeg?imwidth=400' />
-                    <div className='vn__nav__title'><p>Gaming desk and chairs sets</p></div>
+                    <img className='img' src="https://www.ikea.com/in/en/images/products/spongdal-tv-bench-red__0818790_pe774617_s5.jpg?f=xxs"
+                    />
+                    <div className='vn__nav__title'><p>TV bench</p></div>
                 </div>
             </div>
             {/* ........................ */}
             <div>
                 <h2 className='heading-ls'>
-                    Gaming setups that support you while you conquer alternate worlds
+                    Smart Furntiure setups that support you while you conquer alternate worlds
                 </h2>
                 <p className='para-ls'>
                     The best gaming chair helps you forget where you are seated. Our gaming chairs keep you so well supported that you can immerse yourself in gameplay for long hours without feeling any discomfort. Our gaming desks comfortably house all your equipment while also being comfortable to use.
@@ -67,15 +81,15 @@ const Top = () => {
                 </div>
                 <div className='grid'>
                     <div>
-                        <img className="image1" src='https://www.ikea.com/ext/ingkadam/m/7a7b9d36336ae261/original/PH187062-crop001.jpg?f=xs' alt="" /></div>
+                        <img className="image1" src="https://www.ikea.com/in/en/images/products/klippan-2-seat-sofa-vissle-grey__0239990_pe379591_s5.jpg?f=xxs" alt="" /></div>
                     <div>
-                        <img className="image2" src='https://www.ikea.com/ext/ingkadam/m/5c78a88c7428549d/original/PH187594.jpg?f=xs' alt="" /></div>
+                        <img className="image2" src='https://www.ikea.com/in/en/images/products/utespelare-gaming-desk-black__0985179_pe816538_s5.jpg?f=xxs' alt="" /></div>
                 </div>
                 <div className='grid1'>
                     <div>
-                        <img className="image3" src='https://www.ikea.com/ext/ingkadam/m/431f65e975caf083/original/PH188170.jpg?f=xs' alt="" /></div>
+                        <img className="image3" src='https://www.ikea.com/in/en/images/products/brimnes-tv-bench-black__0850581_pe725298_s5.jpg?f=xxs' alt="" /></div>
                     <div>
-                        <img className="image4" src='https://www.ikea.com/ext/ingkadam/m/27297d75d106222c/original/PH183443-crop001.jpg?f=xs' alt="" /></div>
+                        <img className="image4" src='https://www.ikea.com/in/en/images/products/brimnes-tv-storage-combination-glass-doors-black__0849973_pe725295_s5.jpg?f=xxs' alt="" /></div>
                 </div>
             </div>
             <div className='image2-ls'>

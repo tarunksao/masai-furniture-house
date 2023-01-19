@@ -6,11 +6,11 @@ import { Box, Button, Flex, Grid, Select, Spacer, Text, boxShadow, border, borde
 import { useSearchParams } from 'react-router-dom'
 const Filter = () => {
     const [searchParams, setSearchParams] = useSearchParams()
-    const initialColor = searchParams.getAll("color")
-    // console.log(initialColor)
+    const initialColor = searchParams.getAll("sub_category")
+    console.log(initialColor)
     // instead of category putting category here
     const initialSort = searchParams.getAll("sort")
-    const [color, setColor] = React.useState(initialColor || [])
+    const [category, setCategory] = React.useState(initialColor || [])
     const [sort, setSortBy] = React.useState(initialSort || "")
     const location = useLocation()
 
@@ -18,15 +18,14 @@ const Filter = () => {
     const handleFilterCheckBox = (e) => {
 
 
-        const newColor = e.target.value;
+        const newCategory = e.target.value;
 
-        if (newColor !== "") {
-            setColor(e.target.value)
+        if (newCategory !== "") {
+            setCategory(e.target.value)
         } else {
-            setColor([])
+            setCategory([])
         }
-        // setColor(e.target.value)
-        // console.log(color)
+        console.log(category)
     }
 
     const handleSort = (e) => {
@@ -36,11 +35,12 @@ const Filter = () => {
 
     React.useEffect(() => {
         let params = {};
-        params.color = color;
+        // console.log(params.sub_category)
+        params.sub_category = category;
         sort && (params.sort = sort)
         setSearchParams(params)
 
-    }, [color, setSearchParams, sort])
+    }, [category, setSearchParams, sort])
 
 
     return (
@@ -58,12 +58,10 @@ const Filter = () => {
                         <option value="asc" name="sortBy">Price low to high</option>
                     </Select>
                     <Select onChange={handleFilterCheckBox} variant="outlined" border="2px" w="100px" placeholder="Category" borderRadius="20px">
-                        <option value="black">black</option>
-                        <option value="Orange">Orange</option>
-                        <option value="pink">pink</option>
-                        <option value="beige-brown">beige-brown</option>
-                        <option value="Khaki">Khaki</option>
-                        <option value="Purple">Purple</option>
+                        <option value="gaming furniture">gaming furniture</option>
+                        <option value="sofa">sofa</option>
+                        <option value="tv & media furniture">tv & media furniture</option>
+                        <option value="bed">bed</option>
                     </Select>
                 </Flex>
             </Box>
@@ -72,10 +70,3 @@ const Filter = () => {
 }
 
 export default Filter
-
-// checked={color.includes("being-brown")}
-// checked={color.includes("black")}
-// checked={color.includes("Orange")}
-// checked={color.includes("pink")}
-// checked={color.includes("khaki")}
-// checked={color.includes("Purple")}
