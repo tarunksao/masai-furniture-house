@@ -4,22 +4,42 @@ const { ProductModel } = require( '../models/products.model' );
 const app = express.Router();
 app.use(express.json());
 
-app.get('/', async (req,res) => {
-    const {category, sub_category} = req.query;
+app.get('/:category', async (req,res) => {
+    const {category} = req.params;
+    const {sub_category} = req.query;
     try{
-        const allProduct = await ProductModel.find();
-        res.send({message:'Get all products here', allProduct});
+        if (category) {
+            if (sub_category) {
+                const getSubCategory = await ProductModel.find({category, sub_category});
+                res.status(200).send(getSubCategory);
+            } else {
+                const getCategory = await ProductModel.find({category});
+                res.status(200).send(getCategory);
+            }
+        } else {
+            const allProduct = await ProductModel.find();
+            res.status(200).send({message:'Get all products here', allProduct});
+        }
     } catch (e) {
         res.send({message:'Error while fetching products', error:e});
     }
 });
+
+app.get('/', async (req,res) => {
+    try {
+        const allProduct = await ProductModel.find();
+        res.status(200).send({message:'Get all products here', allProduct});
+    } catch (e) {
+        res.send({message:'Error while fetching products', error:e});
+    }
+})
 
 app.post('/create', async (req,res) => {
     const payload = req.body;
     try{
         const addProduct = new ProductModel(payload);
         await addProduct.save();
-        res.send({message:'Added a new Product', product:addProduct});
+        res.status(201).send({message:'Added a new Product', product:addProduct});
     } catch (e) {
         res.send({message:'Error while adding new product', error:e});
     }
