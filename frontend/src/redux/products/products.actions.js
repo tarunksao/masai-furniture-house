@@ -20,16 +20,17 @@ const getproductSuccess =(payload)=>{
     }
  }
  
+ 
  export const getProduct=(params)=>(dispatch)=>{
-     dispatch(getproductRequest())
-     return axios.get("https://mock-api-server.onrender.com/products",params)
-     .then((r)=>{
-        dispatch(getproductSuccess(r.data))
-      //   console.log(r)
-     })
-     .catch((e)=>{
-        dispatch(getproductError())
-     })
- }
+   dispatch(getproductRequest())
+   return axios.get("http://localhost:7000/products",params)
+   .then((r)=>{
+      dispatch(getproductSuccess(r.data.allProduct))
+    //   console.log(r.data.allProduct)
+   })
+   .catch((e)=>{
+      dispatch(getproductError())
+   })
+}
  
  
