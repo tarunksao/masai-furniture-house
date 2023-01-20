@@ -63,10 +63,13 @@ const Navbar = () => {
             </Flex>
           </Link>
 
-          <Flex alignItems="center" gap="0.3rem">
-            <BsFillCartCheckFill color="white" />
-            <Text color="white">Products</Text>
-          </Flex>
+          <Link to={"/admin/products"}>
+            <Flex alignItems="center" gap="0.3rem">
+              <BsFillCartCheckFill color="white" />
+              <Text color="white">Products</Text>
+            </Flex>
+          </Link>
+
           <Flex alignItems="center" gap="0.3rem">
             <MdProductionQuantityLimits color="white" />
             <Text color="white">Orders</Text>
@@ -104,10 +107,13 @@ const Navbar = () => {
                 </Flex>
               </Link>
 
-              <Flex m="25px auto" style={hamStyle}>
-                <BsFillCartCheckFill />
-                <Text>Products</Text>
-              </Flex>
+              <Link to={"/admin/products"}>
+                <Flex m="25px auto" style={hamStyle}>
+                  <BsFillCartCheckFill />
+                  <Text>Products</Text>
+                </Flex>
+              </Link>
+
               <Flex m="25px auto" style={hamStyle}>
                 <MdProductionQuantityLimits />
                 <Text>Orders</Text>

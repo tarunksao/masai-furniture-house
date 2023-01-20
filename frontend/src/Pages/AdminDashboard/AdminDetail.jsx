@@ -42,8 +42,9 @@ const AdminDetail = () => {
       <Menu>
         <MenuButton>
           <ImUserTie
-            color={["black", "black", "white", "white"]}
+            color={{ base: "black", sm: "black", md: "white", lg: "white" }}
             cursor="pointer"
+            size={20}
           />
         </MenuButton>
         <MenuList
@@ -53,10 +54,10 @@ const AdminDetail = () => {
           p="1rem 1.5rem"
         >
           <Text textAlign="center" fontSize="1.2rem" fontWeight="bold">
-            Hi, {adminData.adminName}
+            Hi, {adminData ? adminData.user[0].adminName : "Admin"}
           </Text>
           <Text textAlign="center" m="7px 0px" fontSize="1rem">
-            {adminData.email}
+            {adminData ? adminData.user[0].email : "Email"}
           </Text>
           <Flex justify="center">
             <Badge

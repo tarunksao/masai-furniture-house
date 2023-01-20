@@ -1,5 +1,6 @@
 const express = require("express");
 const { AdminModel } = require("../models/adminModel");
+const { ProductModel } = require("../models/products.model");
 
 require("dotenv").config();
 const SecretKey = process.env.secretKey;
@@ -46,8 +47,15 @@ adminRouter.post("/login", async (req, res) => {
     if (user.length > 0) {
       bcrypt.compare(password, user[0].password, (err, result) => {
         if (result) {
-          const token = jwt.sign({ userID: user[0]._id }, SecretKey); // secretkey = ikea
-          res.send({ msg: "Login Successfull", token: token });
+          const token = jwt.sign(
+            {
+              name: user[0].adminName,
+              userID: user[0]._id,
+              role: user[0].role,
+            },
+            SecretKey
+          ); // secretkey = ikea
+          res.send({ msg: "Login Successfull", token: token, user: user });
         } else {
           console.log(err);
           res.send("Wrong Credntials");
@@ -59,6 +67,20 @@ adminRouter.post("/login", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.send("Something went wrong while logging in");
+  }
+});
+
+adminRouter.get("/product", async (req, res) => {
+  const page = req.query.page || 0;
+  const perPage = req.query.limit;
+  try {
+    const products = await ProductModel.find()
+      .skip(page * perPage)
+      .limit(perPage);
+    res.send(products);
+  } catch (error) {
+    console.log(error);
+    res.send({ "Error while fetching products": error });
   }
 });
 
