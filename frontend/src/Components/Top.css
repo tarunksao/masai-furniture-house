@@ -78,7 +78,7 @@
 }
 .image{
     display: flex;
-    border: 1px solid #111111;
+    /* border: 1px solid #111111; */
     margin-left: 7%;
 
 }

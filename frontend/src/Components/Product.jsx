@@ -1,7 +1,8 @@
-
+import { useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Box, Button,Text} from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
+
 
 import axios from 'axios'
 import styles from "./product.module.css";
@@ -11,8 +12,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 
 const ProductPage = () => {
-    const product = useSelector((store) => store.product)
-    // console.log(product)
+    const toast = useToast()
+    const product = useSelector((store) => store.product.product)
+    console.log(product)
     const dispatch = useDispatch()
     const location = useLocation()
     // console.log(location)
@@ -56,7 +58,17 @@ const ProductPage = () => {
                                     <Text color="black" fontWeight="700" fontFamily="futura-pt, sans-serif" fontSize="17px" textAlign="left">Rs{ele.price}</Text>
                                 </div>
                                 <div>
-                                    <Button border="solid" variant="outlined" bg="blue" color="white" marginLeft="100px">Add to Cart</Button>
+                                    <Button onClick={() =>
+                                        toast({
+                                            title: "Added to Cart.",
+                                            description: "Data has been added to the  Cart Page",
+                                            status: "info",
+                                            duration: 1000,
+                                            isClosable: true,
+                                            position: "top",
+
+                                        })
+                                    } border="solid" variant="outlined" bg="blue" color="white" marginLeft="100px">Add to Cart</Button>
                                 </div>
                             </div>
                         </Box>

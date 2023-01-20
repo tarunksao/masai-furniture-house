@@ -8,7 +8,7 @@ import { ProductDetails } from './ProductDetalis';
 
 const SinglePage = () => {
     const { id } = useParams()
-    const product = useSelector((store) => store.product)
+    const product = useSelector((store) => store.product.product)
     console.log(product)
     const [current, setCurrent] = React.useState({});
     const dispatch = useDispatch()
