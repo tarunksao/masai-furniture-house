@@ -10,8 +10,8 @@ import AdminRoutes from "./Pages/AdminRoutes";
 function App() {
   return (
     <Box>
-      {/* <Top />
-      <AllRoutes_NS /> */}
+      <Top />
+      <AllRoutes_NS />
       <AdminRoutes />
     </Box>
       //    <Routes>
