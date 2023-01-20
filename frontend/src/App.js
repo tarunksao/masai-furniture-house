@@ -10,14 +10,13 @@ import AdminRoutes from "./Pages/AdminRoutes";
 function App() {
   return (
     <Box>
-      <Top />
+       <Routes>
+        <Route path='/' element={<Top/>}></Route>
+        <Route path="/product/:id" element={<SinglePage/>} />
+      </Routes>
       <AllRoutes_NS />
-      <AdminRoutes />
-    </Box>
-      //    <Routes>
-      //   <Route to ="/top" element ={<Top/>}></Route>
-      //   <Route path="/product/:id" element={<SinglePage/>} />
-      // </Routes> 
+       <AdminRoutes />
+     </Box>
   );
 }
 
