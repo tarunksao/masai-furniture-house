@@ -8,6 +8,7 @@ export default function AllRoutes_NS() {
             <Route path="/Cart" element={<Cart />}></Route>
             {/* <Route path="/" element={<Home />}></Route> */}
             <Route path="/Checkout" element={<Checkout />}></Route>
+            
         </Routes>
     )
 }

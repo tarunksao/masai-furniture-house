@@ -1,4 +1,3 @@
-import { useReducer } from 'react';
 import { Button,Heading,Flex,Text ,Box} from '@chakra-ui/react';
 import React from 'react'
 import { increaseCartQuantity,decreaseCartQuantity} from '../redux/cart/cart.actions';
