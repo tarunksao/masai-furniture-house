@@ -23,8 +23,8 @@ const MapCartData = ({Products,handleRemove}) => {
                    <Text textAlign="left" fontSize="sm"><span >Brand:</span> {prod.brand}</Text>
                    <Text textAlign="left" fontSize="sm"><span>Size:</span> {prod.size}</Text>
                    <HStack marginTop="7px">
-                     <Text textAlign="left" color="red" textDecoration="line-through"><span >MRP:</span> ₹{prod.variant_mrp}</Text>
-                     <Spacer />
+                     {/* <Text textAlign="left" color="red" textDecoration="line-through"><span >MRP:</span> ₹{prod.variant_mrp}</Text>
+                     <Spacer /> */}
                      <Text textAlign="left" color="green"><span >Offer Price:</span> ₹{prod.variant_price}</Text>
                    </HStack>
                  </Box>
@@ -32,7 +32,8 @@ const MapCartData = ({Products,handleRemove}) => {
    
                <Grid m={"20px 0"} templateColumns={{ base: "repeat(2, 1fr)", sm: "repeat(2, 1fr)", md: "repeat(1, 1fr)", lg: "repeat(1, 1fr)" }} pl={"20px"}>
                  <Stack justify={"center"} align={"flex-start"}>
-                   <Quantity quantity={prod.qty} id={prod.id} />
+                   <Quantity quantity={prod.qty} id={prod.id} /> 
+                   
                  </Stack>
                  <Stack justify={"center"} align={"flex-start"}>
                    <Button colorScheme={"red"} onClick={() =>{

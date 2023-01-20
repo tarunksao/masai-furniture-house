@@ -21,7 +21,7 @@ app.get('/:category', async (req,res) => {
             res.status(200).send({message:'Get all products here', allProduct});
         }
     } catch (e) {
-        res.send({message:'Error while fetching products', error:e});
+        res.status(404).send({message:'Error while fetching products', error:e});
     }
 });
 
@@ -30,7 +30,7 @@ app.get('/', async (req,res) => {
         const allProduct = await ProductModel.find();
         res.status(200).send({message:'Get all products here', allProduct});
     } catch (e) {
-        res.send({message:'Error while fetching products', error:e});
+        res.status(404).send({message:'Error while fetching products', error:e});
     }
 })
 
@@ -41,7 +41,7 @@ app.post('/create', async (req,res) => {
         await addProduct.save();
         res.status(201).send({message:'Added a new Product', product:addProduct});
     } catch (e) {
-        res.send({message:'Error while adding new product', error:e});
+        res.status(404).send({message:'Error while adding new product', error:e});
     }
 });
 
@@ -50,9 +50,9 @@ app.patch('/update/:id', async (req,res) => {
     const payload = req.body;
     try{
         const modifyProduct = await ProductModel.findByIdAndUpdate({_id:id}, payload);
-        res.send(`Product with Id-${id} has been updated.`);
+        res.status(200).send(`Product with Id-${id} has been updated.`);
     } catch (e) {
-        res.send({message:'Error while updating new product', error:e});
+        res.status(404).send({message:'Error while updating new product', error:e});
 
     }
 });
@@ -61,9 +61,9 @@ app.delete('/delete/:id', async (req,res) => {
     const {id} = req.params;
     try{
         const deleteProduct = await ProductModel.findByIdAndDelete({_id:id});
-        res.send({message:`Product with Id-${id} has been deleted.`, deleteProduct});
+        res.status(200).send({message:`Product with Id-${id} has been deleted.`, deleteProduct});
     } catch (e) {
-        res.send({message:'Error while updating new product', error:e});
+        res.status(404).send({message:'Error while updating new product', error:e});
     }
 });
 

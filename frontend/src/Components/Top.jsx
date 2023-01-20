@@ -94,7 +94,7 @@ const Top = () => {
             </div>
             <div className='image2-ls'>
                 <div className='flex'>
-                    <img src='https://www.ikea.com/images/a-young-man-with-headphones-on-and-his-hands-up-in-the-air-s-1a162c52599a5317e2644bd34fa28ff9.jpg?f=xxl' /></div>
+                    <img src="https://www.ikea.com/in/en/images/products/sandvika-guest-bed__0655084_pe708902_s5.jpg?f=xxs" /></div>
                 <div className='flex1'>
                     <div className='flex3'>
                         <h3 className='h3'>Level up with the right gaming furniture</h3>
@@ -107,7 +107,7 @@ const Top = () => {
 
             <div className='image2-ls' style={{ marginTop: "70px" }}>
                 <div className='flex'>
-                    <img style={{ width: "100%" }} src='https://www.ikea.com/images/a-black-utespelare-gaming-desk-with-two-screens-a-black-gami-c25dc7ada0e79652e40a31ff9616a0e0.jpg?f=l' /></div>
+                    <img style={{ width: "70%" }} src="https://www.ikea.com/in/en/images/products/sandvika-guest-bed__0655084_pe708902_s5.jpg?f=xxs" /></div>
                 <div className='flex1' style={{ backgroundColor: "#B2A7A5" }}>
                     <div className='flex3'>
                         <h3 className='h3' style={{ color: "black" }}>Getting your gaming solution just right</h3>
@@ -128,9 +128,9 @@ const Top = () => {
             {/* ...... */}
             <div className='image3-ls'>
                 <div>
-                    <img src="https://www.ikea.com/ext/ingkadam/m/7eb82785fa6d1e48/original/PH187595.jpg?f=xl" alt="" /></div>
+                    <img src="https://www.ikea.com/in/en/images/products/groenlid-4-seat-sofa-with-chaise-longues-ljungen-light-red__0852576_pe780181_s5.jpg?f=xxs" alt="" /></div>
                 <div>
-                    <img src="https://www.ikea.com/ext/ingkadam/m/33bd7dc8b58bafe/original/PH180750.jpg?f=xl" alt="" />
+                    <img src="https://www.ikea.com/in/en/images/products/hammarn-sofa-bed-knisa-dark-grey-black__0519027_pe641353_s5.jpg?f=xxs" alt="" />
                 </div>
             </div>
             <div style={{ marginTop: "90px" }}>
