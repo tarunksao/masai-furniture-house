@@ -10,7 +10,8 @@ import AdminRoutes from "./Pages/AdminRoutes";
 function App() {
   return (
     <Box>
-      <Top />
+      {/* <Top />   */}
+      {/* if you are not comment this you are not able to see checkout and cart page  */}
       <AllRoutes_NS />
       <AdminRoutes />
     </Box>

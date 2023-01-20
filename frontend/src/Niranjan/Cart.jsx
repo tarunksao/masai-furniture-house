@@ -112,7 +112,7 @@ function Summary({
       },
     ];
   
-    const TAX = 5;
+    const TAX = 18;
   
     const onEnterPromoCode = (event) => {
       setPromoCode(event.target.value);
@@ -129,7 +129,7 @@ function Summary({
   
       toast({
         title: 'Coupon Not Valid.',
-        description: "Please enter valide coupon code",
+        description: "Please enter valid coupon code",
         status: "error",
         duration: 2000,
         isClosable: true,
@@ -151,7 +151,7 @@ function Summary({
               <Heading mb={"20px"}>Your Cart is empty.</Heading>
   
                 <Button p={"5px 0px"} w={"100%"} colorScheme={"green"}>
-                 <NavLink to="/Products">Continue For Shoping</NavLink>
+                 <NavLink to="/Products">Continue For Shopping</NavLink>
              </Button>
   
   
