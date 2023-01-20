@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box, Heading } from '@chakra-ui/react';
-// import Carousel from '../components/carousel/carousel';
-// import ImageGallery from '../components/imageGallery/imageGallery';
-// import SalesButtons from '../components/salesButtons/salesButtons';
+import Carousel from '../components/carousel/carousel';
+import ImageGallery from '../components/imageGallery/imageGallery';
+import SalesButtons from '../components/salesButtons/salesButtons';
 // import Slider from '../components/slider/slider';
 // import GoodToKnowCards from '../components/goodToKnowCards/goodToKnowCards';
 const Home = () => {
@@ -11,11 +11,6 @@ const Home = () => {
     <Box my={20} color='darkolivegreen'>
       <Heading textAlign='center'> MFH - Masai Furniture House</Heading>
     </Box>
-
-
-
-
-
    
       <ImageGallery />
 
