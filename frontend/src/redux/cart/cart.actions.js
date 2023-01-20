@@ -8,12 +8,13 @@ import {
   REMOVE_CART_ITEMS_SUCCESS,
   REMOVE_CART_ITEMS_ERROR,
   Increment,
-  Decrement
+  Decrement,
 } from "./cart.types";
 
 export const fetchProducts = async (disptach) => {
   disptach({ type: GET_CART_ITEMS_LOADING });
-  return axios.get("https://nord-stom-data.vercel.app/Cartitems")
+  return axios
+    .get("https://nord-stom-data.vercel.app/Cartitems")
     .then((res) => {
       console.log(res.data);
       return disptach({ type: GET_CART_ITEMS_SUCCESS, payload: res.data });
@@ -21,12 +22,12 @@ export const fetchProducts = async (disptach) => {
     .catch(() => disptach({ type: GET_CART_ITEMS_ERROR }));
 };
 
-export const removeItem = (cartId) =>async (dispatch) => {
+export const removeItem = (cartId) => async (dispatch) => {
   dispatch({ type: REMOVE_CART_ITEMS_LOADING });
   return axios
     .delete(`https://nord-stom-data.vercel.app/Cartitems/${cartId}`)
     .then((r) => {
-      console.log(r)
+      console.log(r);
       dispatch({ type: REMOVE_CART_ITEMS_SUCCESS, payload: r });
     })
     .catch(() => dispatch({ type: REMOVE_CART_ITEMS_ERROR }));
@@ -34,11 +35,10 @@ export const removeItem = (cartId) =>async (dispatch) => {
 
 export const increaseCartQuantity = (id) => ({
   type: Increment,
-  payload: id
+  payload: id,
 });
 
-      
 export const decreaseCartQuantity = (id) => ({
   type: Decrement,
-  payload: id
+  payload: id,
 });

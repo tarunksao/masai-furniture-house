@@ -2,6 +2,7 @@ import * as types from "./admin.types";
 
 const initState = {
   adminData: {},
+  product: [],
   isAuth: false,
   isLoading: false,
   isError: false,
@@ -59,7 +60,6 @@ export const adminReducer = (state = initState, action) => {
     case types.SIGNOUT:
       return {
         ...state,
-        adminData: {},
         isAuth: false,
         isLoading: false,
         isError: false,
@@ -67,6 +67,27 @@ export const adminReducer = (state = initState, action) => {
         createAccountLoading: false,
         createAccountError: false,
       };
+
+    case types.GET_PRODUCT_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case types.GET_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        product: action.payload,
+        isLoading: false,
+        isError: false,
+      };
+    case types.GET_PRODUCT_ERROR:
+      return {
+        ...state,
+        product: [],
+        isLoading: false,
+        isLoading: true,
+      };
+
     default:
       return state;
   }
