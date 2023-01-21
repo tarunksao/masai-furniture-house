@@ -67,8 +67,6 @@ const AdminProduct = () => {
     if (product) dispatch(GetProducts(params));
   }, [dispatch, GetProducts, limit, page]);
 
-  useEffect;
-
   return (
     <>
       <Navbar />
