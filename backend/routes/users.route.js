@@ -93,4 +93,8 @@ app.delete('/delete/:id', async (req,res) => {
     }
 });
 
+app.get('/logout', (req,res) => {
+    res.removeHeader('Authorization');
+});
+
 module.exports = app;
