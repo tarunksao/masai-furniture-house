@@ -11,7 +11,6 @@ import Furniture from './Components/furniture';
 import Single from './Components/Single';
 function App() {
   return (
-    </Box>
        <Routes>
         <Route path='/' element={<Top/>}></Route>
         <Route path="/product/:id" element={<SinglePage/>} />
@@ -19,12 +18,13 @@ function App() {
         <Route path="/product/kitchen" element={<Kitchen/>} />
         <Route path="/product/furniture" element={<Furniture/>} />
         <Route path="/furniture/Single/:id" element={<Single/>} />
-
       </Routes>
+
+    <Box>
       {/* if you are not comment this you are not able to see checkout and cart page  */}
-      <AllRoutes_NS />
-       <AdminRoutes />
-     </Box>
+      {/* <AllRoutes_NS /> */}
+      <AdminRoutes />
+    </Box>
   );
 }
 
