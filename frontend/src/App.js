@@ -8,15 +8,15 @@ import AdminRoutes from "./Pages/AdminRoutes";
 
 function App() {
   return (
-    </Box>
-       <Routes>
-        <Route path='/' element={<Top/>}></Route>
-        <Route path="/product/:id" element={<SinglePage/>} />
-      </Routes>
+    <Box>
+      {/* <Routes>
+        <Route path="/" element={<Top />}></Route>
+        <Route path="/product/:id" element={<SinglePage />} />
+      </Routes> */}
       {/* if you are not comment this you are not able to see checkout and cart page  */}
-      <AllRoutes_NS />
-       <AdminRoutes />
-     </Box>
+      {/* <AllRoutes_NS /> */}
+      <AdminRoutes />
+    </Box>
   );
 }
 

@@ -13,6 +13,7 @@ import Logo from "./images/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Loginfunction } from "../../redux/admin/admin.actions";
+import { saveData } from "../../Utils/localStorageData";
 
 const AdminLogin = () => {
   const [adminDetail, setAdminDetail] = useState({
@@ -74,6 +75,7 @@ const AdminLogin = () => {
       });
     } else {
       console.log(adminDetail);
+      saveData("loggedUser", adminDetail);
       dispatch(Loginfunction(adminDetail));
       setAdminDetail({
         adminName: "Admin",

@@ -85,7 +85,7 @@ const Navbar = () => {
             </Flex>
           </Link>
 
-          <Box display="flex" alignItem="center">
+          <Box display="flex" alignItem="center" color="white">
             <AdminDetail />
           </Box>
         </Flex>
@@ -129,7 +129,7 @@ const Navbar = () => {
                 </Flex>
               </Link>
 
-              <Box display="flex" style={hamStyle} bg="black">
+              <Box display="flex" style={hamStyle} bg="black" color="white">
                 <AdminDetail />
               </Box>
             </DrawerBody>
