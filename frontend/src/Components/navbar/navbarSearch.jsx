@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import React, { useRef, useEffect, useState } from 'react';
 import { getDocumentByID, getFirst4Categories } from '../../services/firebase';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate as useHistory } from 'react-router-dom';
 
 import Cookies from 'universal-cookie';
 

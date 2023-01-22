@@ -6,6 +6,7 @@ import styles from "./product.module.css";
 import { useToast } from '@chakra-ui/react';
 import Filter from './Filter';
 import { useDispatch } from 'react-redux';
+import './Top.css';
 
 const Furniture = () => {
     const [data, setData] = React.useState([])
@@ -115,7 +116,7 @@ const Furniture = () => {
                     {data.length > 0 && data.map((ele) =>
                     (
                         <Box key={ele._id} borderRadius="10px" padding="20px" borderColor='red.200' gap="20px" border="1px solid cyan">
-                            <Link to={`/furniture/Single/${ele._id}`}><img src={ele.image_src} alt="" /></Link>
+                            <Link to={`/furniture/Single/${ele._id}`}><img src={ele.image_src} alt="" width='100%'  /></Link>
                             <Text paddingBottom="15px" color="RGB(45, 45, 45)" fontFamily="futura-pt, sans-serif" fontSize="14px" textAlign="left">{ele.brand_name}</Text>
                             <Text paddingBottom="15px" color="RGB(45, 45, 45)" fontFamily="futura-pt, sans-serif" fontSize="14px" textAlign="left">{ele.prod_desc}</Text>
                             <Text color="black" fontWeight="700" fontFamily="futura-pt, sans-serif" fontSize="16px" textAlign="left">{ele.sub_category}</Text>
