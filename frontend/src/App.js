@@ -3,13 +3,10 @@ import "./i18n/config"
 import { Routes, Route } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
 import Top from "./Components/Top";
-import AllRoutes_NS from "./Niranjan/AllRoutes_NS";
 import SinglePage from "./Components/SinglePage";
 import UserRegister from "./Pages/Authentication/Register";
 import { UserLogin } from "./Pages/Authentication/Login";
-<<<<<<< HEAD
 import Logout from "./Pages/Authentication/Logout";
-=======
 import Storage from "./Components/Storage";
 import Kitchen from "./Components/Kitchen";
 import Furniture from "./Components/furniture";
@@ -24,35 +21,37 @@ import { useTranslation } from 'react-i18next';
 import { updateUserStorageByID } from './services/firebase';
 import Cart from "./Niranjan/Cart";
 import Checkout from "./Pages/Checkout";
->>>>>>> 43d2c25e229325a9de894e9645f449b00e5a3348
+import Navbar from "./Components/Navbar";
+import {ChakraProvider} from '@chakra-ui/react';
+
 
 function App() {
   const { i18n } = useTranslation();
   return (
     <Box dir={i18n.dir()} >
+      <ChakraProvider>
+        <Navbar />
+      </ChakraProvider>
        <Routes className={`${
           i18n.dir() === 'ltr' ? 'body-container-ltr' : 'body-container-rtl'
         }`} >
         <Route path='/' element={<Home/>}></Route>
-        <Route path='/' element={<Top/>}></Route>
-        <Route path="/product/:id" element={<SinglePage/>} />
-        <Route path='/register' element={<UserRegister />}></Route>
-        <Route path='/login' element={<UserLogin />}></Route>
-<<<<<<< HEAD
-        <Route path='/logout' element={<Logout />}></Route>
-=======
-        <Route path="/product/storage" element={<Storage/>} />
-        <Route path="/product/kitchen" element={<Kitchen/>} />
-        <Route path="/product/furniture" element={<Furniture/>} />
-        <Route path="/furniture/Single/:id" element={<Single/>} />
-        <Route path="/cart" element={<Cart/>} />
-        <Route path="/checkout" element={<Checkout/>} />
-        <Route path="/admin/Login" element={<AdminLogin />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/register" element={<AdminRegister />} />
-        <Route path="/admin/products" element={<AdminProduct />} />
-        <Route path="/admin/allusers" element={<AdminUserSection />} />
->>>>>>> 43d2c25e229325a9de894e9645f449b00e5a3348
+        <Route path='/top' element={<ChakraProvider><Top/></ChakraProvider>}></Route>
+        <Route path="/product/:id" element={<ChakraProvider><SinglePage/></ChakraProvider>} />
+        <Route path='/register' element={<ChakraProvider><UserRegister /></ChakraProvider>}></Route>
+        <Route path='/login' element={<ChakraProvider><UserLogin /></ChakraProvider>}></Route>
+        <Route path='/logout' element={<ChakraProvider><Logout /></ChakraProvider>}></Route>
+        <Route path="/product/storage" element={<ChakraProvider><Storage/></ChakraProvider>} />
+        <Route path="/product/kitchen" element={<ChakraProvider><Kitchen/></ChakraProvider>} />
+        <Route path="/product/furniture" element={<ChakraProvider><Furniture/></ChakraProvider>} />
+        <Route path="/furniture/Single/:id" element={<ChakraProvider><Single/></ChakraProvider>} />
+        <Route path="/cart" element={<ChakraProvider><Cart/></ChakraProvider>} />
+        <Route path="/checkout" element={<ChakraProvider><Checkout/></ChakraProvider>} />
+        <Route path="/admin/Login" element={<ChakraProvider><AdminLogin /></ChakraProvider>} />
+        <Route path="/admin/dashboard" element={<ChakraProvider><AdminDashboard /></ChakraProvider>} />
+        <Route path="/admin/register" element={<ChakraProvider><AdminRegister /></ChakraProvider>} />
+        <Route path="/admin/products" element={<ChakraProvider><AdminProduct /></ChakraProvider>} />
+        <Route path="/admin/allusers" element={<ChakraProvider><AdminUserSection /></ChakraProvider>} />
       </Routes>
 
     </Box>

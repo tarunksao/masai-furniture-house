@@ -5,7 +5,7 @@ const {CartModel} = require('../models/cart.model');
 const { authenticate } = require( '../middlewares/authenticator.middleware' );
 
 const app = express.Router();
-app.use(authenticate);
+// app.use(authenticate);
 app.use(express.json());
 
 app.get('/', async (req,res) => {

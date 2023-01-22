@@ -43,7 +43,7 @@ app.post('/login', async (req,res) => {
                 if (result) {
                     const token = jwt.sign({username:user[0].name, userid:user[0]._id, role:user[0].role}, process.env.secretKey);
                     res.setHeader('Authorization', token);
-                    res.send({message:'User Login Successful', error:false, token});
+                    res.send({message:'User Login Successful', error:false, token, name:user[0].name});
                 } else {
                     res.status(400).send({message:'Wrong Credentials', error:true});
                 }
