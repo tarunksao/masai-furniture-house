@@ -1,6 +1,7 @@
 const express = require("express");
 const { AdminModel } = require("../models/adminModel");
 const { ProductModel } = require("../models/products.model");
+const { UserModel } = require("../models/users.model");
 
 require("dotenv").config();
 const SecretKey = process.env.secretKey;
@@ -11,11 +12,73 @@ const bcrypt = require("bcrypt");
 const adminRouter = express.Router();
 adminRouter.use(express.json());
 
-// adminRouter.get("/", async (req, res) => {
-//   const admins = await AdminModel.find();
-//   console.log(admins);
-//   res.send("admins : ", admins);
-// });
+adminRouter.get("/alladmins", async (req, res) => {
+  try {
+    const allAdmins = await AdminModel.find();
+    res.status(200).send(allAdmins);
+  } catch (e) {
+    res
+      .status(404)
+      .send({ message: "Something went wrong", error: true, errorMessage: e });
+  }
+});
+
+adminRouter.get("/singleadmin/:id", async (req, res) => {
+  const Id = req.params.id;
+  try {
+    const singleAdmin = await AdminModel.find({ _id: Id });
+    res.status(200).send(singleAdmin);
+  } catch (e) {
+    res
+      .status(404)
+      .send({ message: "Something went wrong", error: true, errorMessage: e });
+  }
+});
+
+adminRouter.delete(`/deleteadmin/:id`, async (req, res) => {
+  const ID = req.params.id;
+  try {
+    await AdminModel.findByIdAndDelete({ _id: ID });
+    res.send(`Deleted the Admin whose id is ${ID}`);
+  } catch (error) {
+    console.log(error);
+    res.send({ err: "Something went wrong" });
+  }
+});
+
+adminRouter.get("/allcustomer", async (req, res) => {
+  try {
+    const allUsers = await UserModel.find();
+    res.status(200).send(allUsers);
+  } catch (e) {
+    res
+      .status(404)
+      .send({ message: "Something went wrong", error: true, errorMessage: e });
+  }
+});
+
+adminRouter.get("/singlecustomer/:id", async (req, res) => {
+  const Id = req.params.id;
+  try {
+    const allUsers = await UserModel.find({ _id: Id });
+    res.status(200).send(allUsers);
+  } catch (e) {
+    res
+      .status(404)
+      .send({ message: "Something went wrong", error: true, errorMessage: e });
+  }
+});
+
+adminRouter.delete(`/deletecustomer/:id`, async (req, res) => {
+  const ID = req.params.id;
+  try {
+    await UserModel.findByIdAndDelete({ _id: ID });
+    res.send(`Deleted the Product whose id is ${ID}`);
+  } catch (error) {
+    console.log(error);
+    res.send({ err: "Something went wrong" });
+  }
+});
 
 adminRouter.post("/register", async (req, res) => {
   const { adminName, email, password } = req.body;
@@ -109,7 +172,7 @@ adminRouter.get("/product", async (req, res) => {
   }
 });
 
-adminRouter.get("/findbyid/:id", async (req, res) => {
+adminRouter.get("/singleproduct/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const product = await ProductModel.find({ _id: id });

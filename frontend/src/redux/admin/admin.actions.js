@@ -71,7 +71,7 @@ export const GetAllProduct = () => (dispatch) => {
 export const GetSingleProduct = (id) => (dispatch) => {
   dispatch({ type: types.GET_SINGLEPRODUCT_REQUEST });
   return axios
-    .get(`http://localhost:7000/admin/findbyid/${id}`)
+    .get(`http://localhost:7000/admin/singleproduct/${id}`)
     .then((response) => {
       console.log(response.data);
       saveData("singleProduct", response.data[0]);
@@ -177,3 +177,107 @@ export const SortByQuantity =
         dispatch({ type: types.GET_PRODUCT_ERROR });
       });
   };
+
+export const GetAllCustomer = () => (dispatch) => {
+  dispatch({ type: types.GET_ALLCUSTOMER_REQUEST });
+  return axios
+    .get("http://localhost:7000/admin/allcustomer")
+    .then((response) => {
+      console.log(response.data);
+      dispatch({
+        type: types.GET_ALLCUSTOMER_SUCCESS,
+        payload: response.data,
+      });
+    })
+    .catch((e) => {
+      console.log(e);
+      dispatch({ type: types.GET_ALLCUSTOMER_ERROR });
+    });
+};
+
+export const GetSingleCustomer = (id) => (dispatch) => {
+  dispatch({ type: types.GET_SINGLEPRODUCT_REQUEST });
+  return axios
+    .get(`http://localhost:7000/admin/singlecustomer/${id}`)
+    .then((response) => {
+      console.log(response.data);
+      saveData("singleUser", response.data[0]);
+      dispatch({
+        type: types.GET_SINGLEPRODUCT_SUCCESS,
+        payload: response.data,
+      });
+    })
+    .catch((e) => {
+      console.log(e);
+      dispatch({ type: types.GET_SINGLEPRODUCT_ERROR });
+    });
+};
+
+export const DeleteSingleCustomer = (id) => (dispatch) => {
+  dispatch({ type: types.GET_SINGLEPRODUCT_REQUEST });
+  return axios
+    .delete(`http://localhost:7000/admin/deletecustomer/${id}`)
+    .then((response) => {
+      console.log(response.data);
+      dispatch({
+        type: types.GET_SINGLEPRODUCT_SUCCESS,
+        payload: response.data,
+      });
+    })
+    .catch((e) => {
+      console.log(e);
+      dispatch({ type: types.GET_SINGLEPRODUCT_ERROR });
+    });
+};
+
+export const GetAllAdmins = () => (dispatch) => {
+  dispatch({ type: types.GET_ALLADMINS_REQUEST });
+  return axios
+    .get("http://localhost:7000/admin/alladmins")
+    .then((response) => {
+      console.log(response.data);
+      dispatch({
+        type: types.GET_ALLADMINS_SUCCESS,
+        payload: response.data,
+      });
+    })
+    .catch((e) => {
+      console.log(e);
+      dispatch({ type: types.GET_ALLADMINS_ERROR });
+    });
+};
+
+export const GetSingleAdmin = (id) => (dispatch) => {
+  dispatch({ type: types.GET_SINGLEPRODUCT_REQUEST });
+  return axios
+    .get(`http://localhost:7000/admin/singleadmin/${id}`)
+    .then((response) => {
+      console.log(response.data);
+      saveData("singleUser", response.data[0]);
+      dispatch({
+        type: types.GET_SINGLEPRODUCT_SUCCESS,
+        payload: response.data,
+      });
+    })
+    .catch((e) => {
+      console.log(e);
+      dispatch({ type: types.GET_SINGLEPRODUCT_ERROR });
+    });
+};
+
+export const DeleteSingleAdmin = (id) => (dispatch) => {
+  dispatch({ type: types.GET_SINGLEPRODUCT_REQUEST });
+  return axios
+    .delete(`http://localhost:7000/admin/deleteadmin/${id}`)
+    .then((response) => {
+      console.log(response.data);
+      dispatch({
+        type: types.GET_SINGLEPRODUCT_SUCCESS,
+        payload: response.data,
+      });
+    })
+    .catch((e) => {
+      console.log(e);
+      dispatch({ type: types.GET_SINGLEPRODUCT_ERROR });
+    });
+};
