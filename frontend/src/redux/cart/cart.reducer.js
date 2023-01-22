@@ -34,14 +34,14 @@ import {
        
           return{
             ...state,
-            data: state.data.map((item) => item.id === payload ? { ...item, qty: item.qty + 1 } : item)
+            data: state.data.map((item) => item._id === payload ? { ...item, quantity: item.quantity + 1 } : item)
           }   
       }
   
       case Decrement:{
         return{
           ...state,
-          data: state.data.map((item) => item.id === payload ? { ...item, qty: item.qty - 1 } : item)
+          data: state.data.map((item) => item._id === payload ? { ...item, quantity: item.quantity - 1 } : item)
         }
       }
   
@@ -49,7 +49,7 @@ import {
         return { ...state, loading: true, error: false  };
       }
       case REMOVE_CART_ITEMS_SUCCESS: {
-        const remove = state.data.filter((cI) => cI.id !== payload);
+        const remove = state.data.filter((cI) => cI._id !== payload);
         return { ...state, data: remove,  loading: false } };
       
       case REMOVE_CART_ITEMS_ERROR: {
