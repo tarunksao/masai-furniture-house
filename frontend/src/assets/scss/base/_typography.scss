@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('../../fonts/NotoSans/NotoSans-Regular.ttf');
+}
+
+body {
+  font-family: $default-font-family, sans-serif;
+}
+
+@mixin HandleParagraph {
+  color: rgb(92, 89, 89);
+  line-height: 1.6em;
+  margin-top: 30px;
+}
+
+@mixin h2Title($size, $weight, $margin) {
+  font-size: $size;
+  font-weight: $weight;
+  margin: $margin;
+}
+
+.h2-title {
+  @include h2Title(1.5rem, 700, 4rem 0);
+
+  &-card {
+    @include h2Title(1.125rem, 700, 2rem 0);
+  }
+}

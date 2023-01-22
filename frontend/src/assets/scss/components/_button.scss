@@ -1,0 +1,18 @@
+.dark-btn {
+  background-color: #000;
+  color: #fff;
+  padding: .5rem 1.5rem;
+  font-weight: 700;
+  font-size: $small-text-size;
+  @include radius(2rem);
+}
+
+.default-btn {
+  height: 2.5rem;
+  padding: 0 1.5rem;
+  border: 1px solid #dfdfdf;
+  font-size: $small-text-size;
+  font-weight: 800;
+  min-width: fit-content;
+  @include radius(4rem);
+}

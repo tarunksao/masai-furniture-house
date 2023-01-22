@@ -1,0 +1,104 @@
+.body-container-ltr {
+  padding-left: $body-padding-start;
+  padding-right: $body-padding-end;
+}
+
+.body-container-rtl {
+  padding-left: $body-margin-end;
+  padding-right: $body-padding-start;
+}
+
+.bi {
+  font-size: 1.2rem;
+}
+
+.mt-nav {
+  margin-top: 3.75rem;
+}
+
+.mt-nav-2 {
+  margin-top: 4.5rem;
+}
+
+.mt-nav-3 {
+  margin-top: 6rem;
+}
+
+.mt-nav-4 {
+  margin-top: 9rem;
+}
+
+.pt-nav {
+  padding-top: 2rem;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.ml-0 {
+  margin-left: 0 !important;
+}
+
+.w-49 {
+  width: 49%;
+}
+
+.overlay-bg {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $overlay-background; /* Black background with opacity */
+  z-index: -1; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+@media only screen and (max-width: 800px) {
+  .body-container-ltr,
+  .body-container-rtl {
+    padding: 0 1rem;
+  }
+
+  .mt-nav {
+    // margin-top: 10rem;
+  }
+
+  .mt-nav-2 {
+    margin-top: 10rem;
+  }
+
+  .pt-nav {
+    padding-top: 4.5rem;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .body-container-ltr,
+  .body-container-rtl {
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 504px) {
+  .body-container-ltr,
+  .body-container-rtl {
+    margin-top: 14rem;
+  }
+}
+
+.form-check-input {
+  &:checked {
+    background-color: #111;
+    border-color: #111;
+  }
+
+  &:focus {
+    outline: 0px !important;
+    -webkit-appearance: none;
+    box-shadow: none !important;
+  }
+}

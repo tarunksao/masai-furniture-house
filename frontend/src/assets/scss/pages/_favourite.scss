@@ -1,0 +1,113 @@
+@import '../abstracts/mixins';
+
+// var
+$txt-color: rgb(117, 117, 117);
+$text-position: center;
+$fixed-number-margin: 20px;
+
+// Center Section
+.fav-parent {
+  margin-top: 80px;
+
+  .center-fav-page h3,
+  .center-fav-page .fav-srow h6,
+  .prod-box-info .prod-price h6 {
+    @include HandleTxtProduct();
+  }
+
+  .center-fav-page {
+    .product-space {
+      margin-top: 50px;
+    }
+
+    .fav-srow,
+    .prod-info {
+      @include HandleFlexItems();
+    }
+  }
+
+  .prod-box-info {
+    .prod-txt {
+      margin-top: 35px;
+
+      h5 {
+        color: black;
+        font-weight: bold;
+      }
+
+      span {
+        @include HandleParagraph();
+      }
+    }
+
+    .prod-img img {
+      @include HandleProductImage();
+    }
+
+    .prod-infoo {
+      @include HandleFlexItems();
+      justify-content: flex-end;
+      margin-top: $fixed-number-margin;
+
+      .prod-box {
+        margin-left: 30px;
+
+        .card-button {
+          @include ShoppingButton();
+          width: 100%;
+
+          i {
+            padding-right: 10px;
+          }
+        }
+
+        .card-button:hover {
+          @include ShoppingButtonHover();
+        }
+
+        select,
+        .del-prod i {
+          @include HandleSelect();
+        }
+
+        .del-prod {
+          background-color: transparent;
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+
+  .prod-price h6 {
+    margin-top: 30px;
+  }
+
+  .total-price {
+    margin-top: 100px;
+
+    .show-price {
+      @include HandleFlexItems();
+      border-top: 1px dashed $txt-color;
+      border-bottom: 1px dashed $txt-color;
+      padding: 8px;
+    }
+
+    .prod-box {
+      text-align: $text-position;
+      margin: $fixed-number-margin auto;
+
+      button {
+        @include ShoppingButton();
+        width: 50%;
+        margin-top: $fixed-number-margin;
+      }
+    }
+  }
+}
+
+.card-button {
+  @include ShoppingButton();
+  // width: 70%;
+  margin-top: $fixed-number-margin;
+  float: right;
+}

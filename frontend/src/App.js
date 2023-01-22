@@ -24,14 +24,12 @@ import Checkout from "./Pages/Checkout";
 function App() {
   const { i18n } = useTranslation();
   return (
-
+  
     <Box dir={i18n.dir()} >
        <Routes className={`${
           i18n.dir() === 'ltr' ? 'body-container-ltr' : 'body-container-rtl'
         }`} >
         <Route path='/' element={<Home/>}></Route>
-
-       <Routes>
         <Route path='/' element={<Top/>}></Route>
 
         <Route path="/product/:id" element={<SinglePage/>} />
@@ -49,7 +47,6 @@ function App() {
       </Routes>
 
     </Box>
-
   );
 }
 
