@@ -12,32 +12,67 @@ import {
   Icon,
   useDisclosure,
   Button,
-  FormControl,
-  FormLabel,
-  Input,
   Select,
   IconButton,
 } from "@chakra-ui/react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-} from "@chakra-ui/react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { GetProducts } from "../../redux/admin/admin.actions";
+import {
+  GetAllProduct,
+  GetProducts,
+  GetSingleProduct,
+  SortByPrice,
+  SortByQuantity,
+} from "../../redux/admin/admin.actions";
 import Navbar from "../AdminDashboard/DashboardNavbar";
 import { BiShow } from "react-icons/bi";
 import { GrEdit } from "react-icons/gr";
 import { MdDeleteOutline } from "react-icons/md";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { BiDownArrowAlt } from "react-icons/bi";
+import { BsArrowUpShort } from "react-icons/bs";
+import { RiFilterLine } from "react-icons/ri";
+import NewProductModal from "./Modals/NewProductModal";
+import EditProductModal from "./Modals/EditProductModal";
+import ShowProductModal from "./Modals/ShowProductModal";
+import DeleteProductModal from "./Modals/DeleteProductModal";
 
 const AdminProduct = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  //AddProduct modal
+  const [addProduct, setAddProduct] = useState(false);
+  const showAddProduct = (value, id) => {
+    setAddProduct(!value);
+    onOpen();
+  };
+
+  //EditProduct modal
+  const [editProduct, setEditProduct] = useState(false);
+  const showEditProduct = (value) => {
+    setTimeout(() => {
+      setEditProduct(!value);
+      onOpen();
+    }, 100);
+  };
+
+  //SingleProductModal
+  const [singleProduct, setSingleProduct] = useState(false);
+  const showSingleProduct = (value) => {
+    setTimeout(() => {
+      setSingleProduct(!value);
+      onOpen();
+    }, 200);
+  };
+
+  //Delete ProductModal
+  const [deleteProduct, setDeleteProduct] = useState(false);
+  const showDeleteProduct = (value) => {
+    setTimeout(() => {
+      setDeleteProduct(!value);
+      onOpen();
+    }, 200);
+  };
 
   //To set and change the limits
   const [limit, setLimit] = useState(15);
@@ -51,21 +86,55 @@ const AdminProduct = () => {
     setPage(value);
   };
 
+  //to sort by price
+  const [price, setPrice] = useState("asc");
+  const sortPrice = (value) => {
+    value === "asc" ? setPrice("desc") : setPrice("asc");
+  };
+
+  //to sort by quantity
+  const [quantity, setQuantity] = useState("asc");
+  const sortQuantity = (value) => {
+    value === "asc" ? setQuantity("desc") : setQuantity("asc");
+  };
+
+  //to filter by product name
+  const [productName, setProductName] = useState(false);
+  const filterProduct = (value) => {
+    setProductName(!value);
+  };
+
+  //to filter by category
+  const [category, setCategory] = useState(false);
+  const filterCategory = (value) => {
+    setCategory(!value);
+    isOpen();
+  };
+
   const initialRef = React.useRef(null);
-  const finalRef = React.useRef(null);
+  const cancelRef = React.useRef();
 
   const product = useSelector((store) => store.admin.product);
+  const allProducts = useSelector((store) => store.admin.allProducts);
+
   console.log(product);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const params = {
+    let params = {
       limit: limit,
       page: page,
     };
-    if (product) dispatch(GetProducts(params));
-  }, [dispatch, GetProducts, limit, page]);
+    dispatch(GetProducts(params));
+  }, [dispatch, GetProducts, limit, page, product.brand_name]);
+
+
+  useEffect(() => {
+    if (allProducts.length === 0) {
+      dispatch(GetAllProduct());
+    }
+  }, [allProducts.length]);
 
   return (
     <>
@@ -79,96 +148,141 @@ const AdminProduct = () => {
           variant="outline"
           bg={"teal.200"}
           colorScheme="black"
-          onClick={onOpen}
+          onClick={() => {
+            showAddProduct(addProduct);
+          }}
         >
           Add New Product
         </Button>
       </HStack>
 
-      <Modal
-        initialFocusRef={initialRef}
-        finalFocusRef={finalRef}
-        isOpen={isOpen}
-        onClose={onClose}
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader textAlign="center" fontSize={20} fontWeight={600}>
-            Add a new Product
-          </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody pb={6}>
-            <FormControl>
-              <FormLabel>Name of Product</FormLabel>
-              <Input
-                ref={initialRef}
-                placeholder="New Product Name"
-                type="text"
-              />
-            </FormControl>
-
-            <HStack w="full" mt={5}>
-              <FormControl w="60%">
-                <FormLabel>Image Url</FormLabel>
-                <Input type="url" />
-              </FormControl>
-              <FormControl w="40%">
-                <FormLabel>Category</FormLabel>
-                <Input type="text" />
-              </FormControl>
-            </HStack>
-
-            <HStack w="full" justify="space-between" mt={5}>
-              <FormControl>
-                <FormLabel>Total Price</FormLabel>
-                <Input type="number" />
-              </FormControl>
-              <FormControl>
-                <FormLabel>Quantity of Product</FormLabel>
-                <Input type="number" />
-              </FormControl>
-            </HStack>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3}>
-              Save
-            </Button>
-            <Button onClick={onClose} colorScheme="red">
-              Cancel
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      {addProduct && (
+        <NewProductModal
+          isOpen={isOpen}
+          onClose={onClose}
+          initialRef={initialRef}
+          value={addProduct}
+          showAddProduct={showAddProduct}
+        />
+      )}
 
       <TableContainer w="90%" h="450px" overflowY="scroll" margin={"auto"}>
         <Table variant="striped" colorScheme="teal">
           <Thead bg={"black"}>
             <Tr>
-              <Th color="white">Product Id</Th>
-              <Th color="white">Produt Name</Th>
-              <Th color="white">Category</Th>
-              <Th color="white">Price</Th>
-              <Th color="white">Quanity</Th>
+              <Th color="white">Product ID</Th>
+
+              <Th color="white">
+                <HStack spacing={-1}>
+                  <Text>Product Name</Text>
+                  <IconButton
+                    icon={<RiFilterLine size={20} color="white" />}
+                    variant="ghost"
+                    size="sm"
+                    _hover="none"
+                    onClick={() => {
+                      filterProduct(productName);
+                    }}
+                  />
+                </HStack>
+              </Th>
+
+              <Th color="white">
+                <HStack spacing={-1}>
+                  <Text>Category</Text>
+                  <IconButton
+                    icon={<RiFilterLine size={20} color="white" />}
+                    variant="ghost"
+                    size="sm"
+                    _hover="none"
+                    onClick={() => {
+                      filterCategory(category);
+                    }}
+                  />
+                </HStack>
+              </Th>
+
+              <Th color="white">
+                <HStack spacing={-1}>
+                  <Text>Sub-Category</Text>
+                  <IconButton
+                    icon={<RiFilterLine size={20} color="white" />}
+                    variant="ghost"
+                    size="sm"
+                    _hover="none"
+                    onClick={() => {
+                      filterCategory(category);
+                    }}
+                  />
+                </HStack>
+              </Th>
+
+              <Th color="white">
+                <HStack spacing={-1}>
+                  <Text>Price</Text>
+                  <IconButton
+                    icon={
+                      price === "asc" ? (
+                        <BsArrowUpShort size={20} color="white" />
+                      ) : (
+                        <BiDownArrowAlt size={20} color="white" />
+                      )
+                    }
+                    variant="ghost"
+                    size="sm"
+                    _hover="none"
+                    onClick={() => {
+                      sortPrice(price);
+                      dispatch(SortByPrice({ limit, page, price }));
+                    }}
+                  />
+                </HStack>
+              </Th>
+
+              <Th color="white">
+                <HStack spacing={-1}>
+                  <Text>Quantity</Text>
+                  <IconButton
+                    icon={
+                      quantity === "asc" ? (
+                        <BsArrowUpShort size={20} color="white" />
+                      ) : (
+                        <BiDownArrowAlt size={20} color="white" />
+                      )
+                    }
+                    variant="ghost"
+                    size="sm"
+                    _hover="none"
+                    onClick={() => {
+                      sortQuantity(quantity);
+                      dispatch(SortByQuantity({ limit, page, quantity }));
+                    }}
+                  />
+                </HStack>
+              </Th>
+
               <Th color="white">Actions</Th>
             </Tr>
           </Thead>
           <Tbody>
             {product.length > 0 &&
-              product.map((elem) => (
-                <Tr key={elem?._id}>
-                  <Td>{elem?._id}</Td>
+              product?.map((elem) => (
+                <Tr key={elem._id}>
+                  <Td>{elem._id}</Td>
                   <Td>
-                    <Text>{elem?.brand_name}</Text>
+                    <Text>{elem.brand_name}</Text>
                   </Td>
                   <Td>
-                    <Text>{elem?.category}</Text>
+                    <Text>{elem.category}</Text>
                   </Td>
                   <Td>
-                    <Text>₹{elem?.price}</Text>
+                    <Text>{elem.sub_category}</Text>
                   </Td>
                   <Td>
-                    <Text>{elem?.quantity}</Text>
+                    <Text>₹{elem.price}</Text>
+                  </Td>
+                  <Td>
+                    <Text>{elem.quantity}</Text>
                   </Td>
                   <Td>
                     <HStack>
@@ -177,13 +291,35 @@ const AdminProduct = () => {
                         color="blue"
                         cursor="pointer"
                         size={18}
+                        onClick={() => {
+                          dispatch(GetSingleProduct(elem._id));
+                          setTimeout(
+                            () => showSingleProduct(singleProduct),
+                            500
+                          );
+                        }}
                       />
-                      <Icon as={GrEdit} cursor={"pointer"} />
+                      <Icon
+                        as={GrEdit}
+                        cursor={"pointer"}
+                        onClick={() => {
+                          dispatch(GetSingleProduct(elem._id));
+                          setTimeout(() => showEditProduct(editProduct), 500);
+                        }}
+                      />
+
                       <Icon
                         as={MdDeleteOutline}
                         color="red"
                         fontSize={18}
                         cursor={"pointer"}
+                        onClick={() => {
+                          dispatch(GetSingleProduct(elem._id));
+                          setTimeout(
+                            () => showDeleteProduct(deleteProduct),
+                            500
+                          );
+                        }}
                       />
                     </HStack>
                   </Td>
@@ -192,6 +328,39 @@ const AdminProduct = () => {
           </Tbody>
         </Table>
       </TableContainer>
+
+      {editProduct && (
+        <EditProductModal
+          isOpen={isOpen}
+          onClose={onClose}
+          initialRef={initialRef}
+          value={editProduct}
+          showEditProduct={showEditProduct}
+          limit={limit}
+          page={page}
+        />
+      )}
+
+      {singleProduct && (
+        <ShowProductModal
+          isOpen={isOpen}
+          onClose={onClose}
+          value={singleProduct}
+          showSingleProduct={showSingleProduct}
+        />
+      )}
+
+      {deleteProduct && (
+        <DeleteProductModal
+          isOpen={isOpen}
+          onClose={onClose}
+          cancelRef={cancelRef}
+          value={deleteProduct}
+          showDeleteProduct={showDeleteProduct}
+          limit={limit}
+          page={page}
+        />
+      )}
 
       <HStack
         w="90%"
@@ -222,8 +391,10 @@ const AdminProduct = () => {
         <HStack>
           <Text color="white">
             {limit * page - limit + 1}-
-            {limit * page < product.length ? limit * page : product.length} of{" "}
-            {product.length}
+            {limit * page < allProducts.length
+              ? limit * page
+              : allProducts.length}{" "}
+            of {allProducts.length}
           </Text>
           <HStack color="white">
             <IconButton
@@ -239,7 +410,7 @@ const AdminProduct = () => {
               variant="outline"
               size="sm"
               _hover="none"
-              isDisabled={limit * page > product.length}
+              isDisabled={limit * page > allProducts.length}
               onClick={() => currentPage(page + 1)}
             />
           </HStack>
