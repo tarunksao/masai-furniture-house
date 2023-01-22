@@ -5,6 +5,8 @@ const initState = {
   adminData: getLocalData("loggedUser") || {},
   product: [],
   allProducts: [],
+  allCustomers: [],
+  allAdmins: [],
   isAuth: getLocalData("isAuth") || false,
   isLoading: false,
   isError: false,
@@ -96,7 +98,7 @@ export const adminReducer = (state = initState, action) => {
         ...state,
         product: [],
         isLoading: false,
-        isLoading: true,
+        isError: true,
       };
 
     /* To get all Data*/
@@ -119,7 +121,7 @@ export const adminReducer = (state = initState, action) => {
         ...state,
         allProducts: [],
         isLoading: false,
-        isLoading: true,
+        isError: true,
       };
 
     /* to update a product */
@@ -142,7 +144,53 @@ export const adminReducer = (state = initState, action) => {
         ...state,
         product: [],
         isLoading: false,
+        isError: true,
+      };
+
+    /* To get all customer*/
+    case types.GET_ALLCUSTOMER_REQUEST:
+      return {
+        ...state,
         isLoading: true,
+      };
+
+    case types.GET_ALLCUSTOMER_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        allCustomers: action.payload,
+        isError: false,
+      };
+
+    case types.GET_ALLCUSTOMER_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        allCustomer: [],
+        isError: true,
+      };
+
+    /* To get all admins*/
+    case types.GET_ALLADMINS_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+    case types.GET_ALLADMINS_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        allAdmins: action.payload,
+        isError: false,
+      };
+
+    case types.GET_ALLADMINS_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        allAdmins: [],
+        isError: true,
       };
 
     default:

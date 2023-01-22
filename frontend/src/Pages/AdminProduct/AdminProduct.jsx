@@ -127,14 +127,14 @@ const AdminProduct = () => {
       page: page,
     };
     dispatch(GetProducts(params));
-  }, [dispatch, GetProducts, limit, page, product.brand_name]);
+  }, [dispatch, limit, page, product.brand_name]);
 
 
   useEffect(() => {
     if (allProducts.length === 0) {
       dispatch(GetAllProduct());
     }
-  }, [allProducts.length]);
+  }, [allProducts.length, dispatch]);
 
   return (
     <>
@@ -295,7 +295,7 @@ const AdminProduct = () => {
                           dispatch(GetSingleProduct(elem._id));
                           setTimeout(
                             () => showSingleProduct(singleProduct),
-                            500
+                            300
                           );
                         }}
                       />
@@ -304,7 +304,7 @@ const AdminProduct = () => {
                         cursor={"pointer"}
                         onClick={() => {
                           dispatch(GetSingleProduct(elem._id));
-                          setTimeout(() => showEditProduct(editProduct), 500);
+                          setTimeout(() => showEditProduct(editProduct), 300);
                         }}
                       />
 
@@ -317,7 +317,7 @@ const AdminProduct = () => {
                           dispatch(GetSingleProduct(elem._id));
                           setTimeout(
                             () => showDeleteProduct(deleteProduct),
-                            500
+                            300
                           );
                         }}
                       />
