@@ -129,6 +129,7 @@ const AdminProduct = () => {
     dispatch(GetProducts(params));
   }, [dispatch, GetProducts, limit, page, product.brand_name]);
 
+
   useEffect(() => {
     if (allProducts.length === 0) {
       dispatch(GetAllProduct());
