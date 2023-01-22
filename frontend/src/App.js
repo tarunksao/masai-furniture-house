@@ -9,6 +9,8 @@ import Storage from './Components/Storage';
 import Kitchen from './Components/Kitchen';
 import Furniture from './Components/furniture';
 import Single from './Components/Single';
+import Cart from "./Niranjan/Cart";
+import Checkout from "./Pages/Checkout";
 function App() {
   return (
        <Routes>
@@ -18,13 +20,15 @@ function App() {
         <Route path="/product/kitchen" element={<Kitchen/>} />
         <Route path="/product/furniture" element={<Furniture/>} />
         <Route path="/furniture/Single/:id" element={<Single/>} />
+        <Route path="/cart" element={<Cart/>} />
+        <Route path="/checkout" element={<Checkout/>} />
       </Routes>
 
-    <Box>
-      {/* if you are not comment this you are not able to see checkout and cart page  */}
-      {/* <AllRoutes_NS /> */}
-      <AdminRoutes />
-    </Box>
+    // <Box>
+    //   {/* if you are not comment this you are not able to see checkout and cart page  */}
+    //   {/* <AllRoutes_NS /> */}
+    //   <AdminRoutes />
+    // </Box>
   );
 }
 
