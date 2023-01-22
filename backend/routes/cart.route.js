@@ -27,7 +27,7 @@ app.post('/add', async (req,res) => {
         await addToCart.save();
         res.status(201).send({message:'Product added to cart',error:false, addedProduct:addToCart});
     } catch(e) {
-        res.status(404).send({message:'Something went wrong', error:true, errorMessage:e});
+        return res.status(404).send({message:'Something went wrong', error:true, errorMessage:e});
     }
 });
 

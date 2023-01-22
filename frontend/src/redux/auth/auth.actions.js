@@ -9,6 +9,8 @@ export const userLogin = (creeds) => async (dispatch) => {
     let response = await axios.post('http://localhost:7000/users/login', creeds);
     let data = await response.data;
     console.log('user login Data:', data);
+    axios.defaults.headers.common["Authorization"] = data.token;
+    localStorage.setItem('token', data.token);
     dispatch({type:LOGIN_SUCCESS, payload:data});
     return data;
   } catch (e) {
@@ -37,6 +39,7 @@ export const userLogout = () => async (dispatch) => {
         let response = await axios.get('http://localhost:7000/users/logout');
         let data = await response.data;
         console.log('User Logout Data:', data);
+        localStorage.removeItem('token');
         dispatch({type:LOGOUT});
         
     } catch (e) {
