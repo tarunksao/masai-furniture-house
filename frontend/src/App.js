@@ -5,16 +5,19 @@ import { Box } from "@chakra-ui/react";
 import Top from "./Components/Top";
 import AllRoutes_NS from "./Niranjan/AllRoutes_NS";
 import SinglePage from "./Components/SinglePage";
-import AdminRoutes from "./Pages/AdminRoutes";
+import Storage from "./Components/Storage";
+import Kitchen from "./Components/Kitchen";
+import Furniture from "./Components/furniture";
+import Single from "./Components/Single";
+import AdminLogin from "./Pages/AdminLogin/AdminLogin";
+import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
+import AdminRegister from "./Pages/AdminDashboard/AdminRegister";
+import AdminProduct from "./Pages/AdminProduct/AdminProduct";
+import AdminUserSection from "./Pages/AdminUserSection/AdminUserSection";
 
 import Home from "./Pages/Home"
 import { useTranslation } from 'react-i18next';
 import { updateUserStorageByID } from './services/firebase';
-
-import Storage from './Components/Storage';
-import Kitchen from './Components/Kitchen';
-import Furniture from './Components/furniture';
-import Single from './Components/Single';
 import Cart from "./Niranjan/Cart";
 import Checkout from "./Pages/Checkout";
 
@@ -38,13 +41,15 @@ function App() {
         <Route path="/furniture/Single/:id" element={<Single/>} />
         <Route path="/cart" element={<Cart/>} />
         <Route path="/checkout" element={<Checkout/>} />
+         <Route path="/admin/Login" element={<AdminLogin />} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
+      <Route path="/admin/register" element={<AdminRegister />} />
+      <Route path="/admin/products" element={<AdminProduct />} />
+      <Route path="/admin/allusers" element={<AdminUserSection />} />
       </Routes>
 
-    // <Box>
-    //   {/* if you are not comment this you are not able to see checkout and cart page  */}
-    //   {/* <AllRoutes_NS /> */}
-    //   <AdminRoutes />
-    // </Box>
+    </Box>
+
   );
 }
 

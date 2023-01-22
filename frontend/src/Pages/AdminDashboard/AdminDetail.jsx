@@ -10,7 +10,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ImUserTie } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 import { SIGNOUT } from "../../redux/admin/admin.types";
