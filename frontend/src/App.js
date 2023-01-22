@@ -7,6 +7,9 @@ import AllRoutes_NS from "./Niranjan/AllRoutes_NS";
 import SinglePage from "./Components/SinglePage";
 import UserRegister from "./Pages/Authentication/Register";
 import { UserLogin } from "./Pages/Authentication/Login";
+<<<<<<< HEAD
+import Logout from "./Pages/Authentication/Logout";
+=======
 import Storage from "./Components/Storage";
 import Kitchen from "./Components/Kitchen";
 import Furniture from "./Components/furniture";
@@ -21,6 +24,7 @@ import { useTranslation } from 'react-i18next';
 import { updateUserStorageByID } from './services/firebase';
 import Cart from "./Niranjan/Cart";
 import Checkout from "./Pages/Checkout";
+>>>>>>> 43d2c25e229325a9de894e9645f449b00e5a3348
 
 function App() {
   const { i18n } = useTranslation();
@@ -34,6 +38,9 @@ function App() {
         <Route path="/product/:id" element={<SinglePage/>} />
         <Route path='/register' element={<UserRegister />}></Route>
         <Route path='/login' element={<UserLogin />}></Route>
+<<<<<<< HEAD
+        <Route path='/logout' element={<Logout />}></Route>
+=======
         <Route path="/product/storage" element={<Storage/>} />
         <Route path="/product/kitchen" element={<Kitchen/>} />
         <Route path="/product/furniture" element={<Furniture/>} />
@@ -45,6 +52,7 @@ function App() {
         <Route path="/admin/register" element={<AdminRegister />} />
         <Route path="/admin/products" element={<AdminProduct />} />
         <Route path="/admin/allusers" element={<AdminUserSection />} />
+>>>>>>> 43d2c25e229325a9de894e9645f449b00e5a3348
       </Routes>
 
     </Box>

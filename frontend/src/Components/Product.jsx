@@ -4,11 +4,11 @@ import { Link, useLocation } from "react-router-dom";
 import { Box, Button, Text } from "@chakra-ui/react";
 
 
-import axios from 'axios'
 import styles from "./product.module.css";
 import { getProduct } from "../redux/products/products.actions"
 import { useSearchParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { addToCart } from "../redux/cart/cart.actions";
 
 
 const ProductPage = () => {
@@ -40,6 +40,21 @@ const ProductPage = () => {
 
     }, [product.length, dispatch, location.search])
 
+    const handleClick = (ele) => {
+        let product = ele;
+        // console.log('product:', ele);
+        dispatch(addToCart(product));
+
+        toast({
+            title: "Added to Cart.",
+            description: "Data has been added to the  Cart Page",
+            status: "info",
+            duration: 1000,
+            isClosable: true,
+            position: "top",
+        });
+    }
+
     return (
         <>
 
@@ -58,17 +73,7 @@ const ProductPage = () => {
                                     <Text color="black" fontWeight="700" fontFamily="futura-pt, sans-serif" fontSize="17px" textAlign="left">Rs{ele.price}</Text>
                                 </div>
                                 <div>
-                                    <Button onClick={() =>
-                                        toast({
-                                            title: "Added to Cart.",
-                                            description: "Data has been added to the  Cart Page",
-                                            status: "info",
-                                            duration: 1000,
-                                            isClosable: true,
-                                            position: "top",
-
-                                        })
-                                    } border="solid" variant="outlined" bg="blue" color="white" marginLeft="100px">Add to Cart</Button>
+                                    <Button onClick={() => handleClick(ele._id)} border="solid" variant="outlined" bg="blue" color="white" marginLeft="100px">Add to Cart</Button>
                                 </div>
                             </div>
                         </Box>

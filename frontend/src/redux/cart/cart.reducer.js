@@ -6,7 +6,8 @@ import {
     REMOVE_CART_ITEMS_SUCCESS,
     REMOVE_CART_ITEMS_ERROR,
     Increment,
-    Decrement
+    Decrement,
+    ADD_ITEM_TO_CART_SUCCESS
   } from "./cart.types";
   
   const initalState = {
@@ -54,6 +55,12 @@ import {
       
       case REMOVE_CART_ITEMS_ERROR: {
         return { ...state,  loading: false, error: true  };
+      }
+      case ADD_ITEM_TO_CART_SUCCESS: {
+        return {
+          ...state,
+          data:[...state.data, payload]
+        }
       }
       default: {
         return state;
