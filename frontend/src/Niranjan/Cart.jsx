@@ -82,8 +82,8 @@ function Summary({
   
     }, [count]);
   
-    const handleRemove = (id) => {
-      dispatch(removeItem(id));
+    const handleRemove = (_id) => {
+      dispatch(removeItem(_id));
       setCount(prev=>prev+1);
   setTimeout(()=>{
     dispatch(fetchProducts);
@@ -92,7 +92,7 @@ function Summary({
     };
   
     const subTotal = cartProducts.reduce((tot, item) => {
-      return tot + item.variant_price * item.qty;
+      return tot + item.price * item.quantity;
     }, 0);
   
     const discount = (subTotal * discountPercent) / 100;

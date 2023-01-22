@@ -1,0 +1,33 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css');
+
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utilities';
+
+@import 'components/button';
+@import 'components/breadcrumb';
+@import 'components/card';
+@import 'components/sales-button';
+@import 'components/teaser-container';
+@import 'components/image-container';
+@import 'components/menu';
+@import 'components/loader';
+@import 'components/badge';
+
+@import 'layout/header';
+@import 'layout/image-gallery';
+@import 'layout/title';
+@import 'layout/order';
+@import 'layout/footer';
+
+@import 'pages/home';
+@import 'pages/products';
+@import 'pages/login';
+@import 'pages/favourite';
+@import 'pages/shoppingBag';
+@import 'pages/category';
+@import 'pages/contact';
+@import 'pages/profile';

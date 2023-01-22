@@ -1,0 +1,195 @@
+.menu-btn-ltr {
+  @include radius(50%);
+  position: fixed;
+  top: 2.5rem;
+  left: 2.5rem;
+  z-index: 10;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+
+  &.left-arrow {
+    position: relative !important;
+    top: 0;
+    left: -6.5rem;
+  }
+
+  i {
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    &.bi-arrow-left-short {
+      font-size: 1.9rem;
+    }
+
+    &.bi-x {
+      position: absolute;
+      top: 0;
+      left: 2rem;
+      font-size: 1.7rem;
+    }
+  }
+}
+.menu-btn-rtl {
+  @include radius(50%);
+  position: fixed;
+  top: 2.5rem;
+  right: 2.5rem;
+  z-index: 10;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+
+  &.right-arrow {
+    position: relative !important;
+    top: 0;
+    right: -6.5rem;
+  }
+
+  i {
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    &.bi-arrow-right-short {
+      font-size: 1.9rem;
+    }
+
+    &.bi-x {
+      position: absolute;
+      top: 0;
+      right: 2rem;
+      font-size: 1.7rem;
+    }
+  }
+}
+.menu-bar-ltr {
+  @media only screen and (max-width: 890px) {
+    width: 100vw;
+  }
+  @media screen and (min-width: 890px) {
+    width: 35vw;
+    .menu-body {
+      padding-left: 30%;
+      padding-right: 5%;
+    }
+  }
+  .menu-header {
+    justify-content: start;
+    padding-top: 1.8rem;
+
+    img {
+      margin-left: 30%;
+    }
+  }
+  .menu-body {
+    padding-top: 2rem;
+
+    ul {
+      list-style-type: none;
+      line-height: 4rem;
+      padding-left: 0;
+      li {
+        font-size: $title-font-size * 1.3;
+        font-weight: $title-font-weight;
+      }
+    }
+    .small-text-list {
+      list-style-type: none;
+      line-height: 2rem;
+      padding-left: 0;
+      li {
+        font-size: $small-text-size;
+        font-weight: $title-font-weight * 0.5;
+        color: $txt-color;
+      }
+
+      & + div {
+        position: absolute;
+
+        & > * {
+          margin-right: 1rem;
+          display: flex;
+          align-items: center;
+        }
+
+        button {
+          i {
+            padding-right: 0.4rem;
+          }
+        }
+      }
+    }
+    .selector-btn {
+      @include SeeAllBtn;
+      padding: 2px 10px;
+    }
+  }
+}
+.menu-bar-rtl {
+  @media only screen and (max-width: 890px) {
+    width: 100vw;
+  }
+  @media screen and (min-width: 890px) {
+    width: 35vw;
+    .menu-body {
+      padding-right: 30%;
+      padding-left: 5%;
+    }
+  }
+  .menu-header {
+    justify-content: start;
+    padding-top: 1.8rem;
+
+    img {
+      margin-right: 30%;
+    }
+  }
+  .menu-body {
+    padding-top: 2rem;
+
+    ul {
+      list-style-type: none;
+      line-height: 4rem;
+      padding-right: 0;
+      li {
+        font-size: $title-font-size * 1.3;
+        font-weight: $title-font-weight;
+      }
+    }
+    .small-text-list {
+      list-style-type: none;
+      line-height: 2rem;
+      padding-right: 0;
+      li {
+        font-size: $small-text-size;
+        font-weight: $title-font-weight * 0.5;
+        color: $txt-color;
+      }
+
+      & + div {
+        position: absolute;
+
+        & > * {
+          margin-left: 1rem;
+          display: flex;
+          align-items: center;
+        }
+
+        button {
+          i {
+            padding-left: 0.4rem;
+          }
+        }
+      }
+    }
+    .selector-btn {
+      @include SeeAllBtn;
+      padding: 10px 2px;
+    }
+  }
+}
+.other-content {
+  display: none;
+}

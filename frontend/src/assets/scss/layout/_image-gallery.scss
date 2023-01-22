@@ -1,0 +1,37 @@
+.image-gallery {
+  margin: 2.7rem 0;
+
+  img {
+    max-width: 100%;
+    min-width: 100%;
+  }
+
+  .image-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .short-img {
+      height: 41.8%;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .long-img {
+      height: 55%;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      min-width: 100%;
+    }
+  }
+}

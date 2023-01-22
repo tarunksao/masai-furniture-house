@@ -1,0 +1,13 @@
+.head-title {
+  font-size: $title-font-size;
+  font-weight: $title-font-weight;
+  position: absolute;
+}
+.small-text {
+  font-size: $small-text-size;
+  color: $small-text-color;
+}
+.big-title {
+  font-size: $title-font-size * 1.5;
+  font-weight: $title-font-weight;
+}

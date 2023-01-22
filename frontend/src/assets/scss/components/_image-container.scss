@@ -1,0 +1,58 @@
+.image-container {
+  position: relative;
+
+  .on-image-btn {
+    position: absolute;
+    border-radius: 50%;
+    -webkit-border-radius: 64px;
+    -moz-border-radius: 64px;
+    -ms-border-radius: 64px;
+    -o-border-radius: 64px;
+    background: white;
+    box-shadow: 0px 0px 0px 10px #0000002e;
+    width: 0.75rem;
+    height: 0.75rem;
+    opacity: 0;
+    transition: opacity 300ms;
+
+    &:hover {
+      box-shadow: 0px 0px 0px 8px #00000067;
+      width: 0.60rem;
+      height: 0.60rem;
+    }
+  }
+
+  &:hover .on-image-btn {
+    opacity: 1;
+  }
+
+  .image1-position {
+    top: 15%;
+    right: 30%;
+  }
+
+  .image2-position {
+    top: 50%;
+    right: 75%;
+  }
+
+  .image3-position {
+    top: 70%;
+    right: 60%;
+  }
+
+  .image4-position {
+    top: 80%;
+    right: 25%;
+  }
+
+  .image5-position {
+    top: 60%;
+    right: 25%;
+  }
+
+  .image6-position {
+    top: 35%;
+    right: 18%;
+  }
+}

@@ -1,0 +1,12 @@
+.message-btn{
+    background-color: #407AB1;
+}
+.message-form{
+    input,select{
+        padding: 3%;
+    }
+    input:focus,select:focus{
+        border-color: #0058A3;
+        box-shadow: none;
+    }
+}
