@@ -95,6 +95,7 @@ app.delete('/delete/:id', async (req,res) => {
 
 app.get('/logout', (req,res) => {
     res.removeHeader('Authorization');
+    res.send('User has been logged out');
 });
 
 module.exports = app;
