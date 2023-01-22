@@ -11,7 +11,7 @@ app.use(express.json());
 app.get('/', async (req,res) => {
     try {
         const allCartItem = await CartModel.find().populate('product').populate('user');
-        res.status(200).send({message:'See you Cart Produts here', cart:allCartItem, error:false});
+        res.status(200).send(allCartItem);
     } catch (e) {
         res.status(404).send({message:'Something went wrong', error:true, errorMessage:e});
     }
