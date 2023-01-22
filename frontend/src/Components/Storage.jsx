@@ -7,6 +7,7 @@ import { useToast } from '@chakra-ui/react';
 import Filter from './Filter';
 import "./Top.css";
 import { useDispatch } from 'react-redux';
+import Navbar from './Navbar';
 
 const Storage = () => {
     const [data, setData] = React.useState([])
@@ -19,7 +20,7 @@ const Storage = () => {
 
 
     const getFurniture = () => {
-        axios.get("http://localhost:7000/products/storage & organization").then((res) => setData(res.data))
+        axios.get("https://cyan-breakable-antelope.cyclic.app/products/storage & organization").then((res) => setData(res.data))
             .catch((err) => console.log(err))
     }
     console.log(data)
@@ -34,6 +35,7 @@ const Storage = () => {
 
     return (
         <>
+        <Navbar />
             <div className='top'>
                 <p>Products</p>
                 <p>  Storage & organisation</p>

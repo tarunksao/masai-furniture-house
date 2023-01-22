@@ -12,6 +12,7 @@ import { useToast } from "@chakra-ui/react";
 import Form1 from "../Niranjan/Form1";
 import Form2 from "../Niranjan/Form2";
 import Form3 from "../Niranjan/Form3";
+import Navbar from "../Components/Navbar";
 export default function Checkout() {
   const navigate = useNavigate();
   const toast = useToast();
@@ -19,6 +20,7 @@ export default function Checkout() {
   const [progress, setProgress] = useState(33.33);
   return (
     <>
+    <Navbar />
       <Box
         borderWidth="1px"
         rounded="lg"

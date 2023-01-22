@@ -6,7 +6,7 @@ export const Loginfunction = (data) => (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST });
 
   axios
-    .post("http://localhost:7000/admin/login", data)
+    .post("https://cyan-breakable-antelope.cyclic.app/admin/login", data)
     .then((response) => {
       console.log(response);
       dispatch({ type: types.LOGIN_SUCCESS, payload: response.data });
@@ -21,7 +21,7 @@ export const SignUpFunction = (data) => (dispatch) => {
   dispatch({ type: types.CREATE_REQUEST });
 
   axios
-    .post("http://localhost:7000/admin/register", data)
+    .post("https://cyan-breakable-antelope.cyclic.app/admin/register", data)
     .then((response) => {
       console.log(response);
       dispatch({ type: types.CREATE_SUCCESS, payload: response.data });
@@ -37,7 +37,7 @@ export const GetProducts =
   (dispatch) => {
     dispatch({ type: types.GET_PRODUCT_REQUEST });
     return axios
-      .get(`http://localhost:7000/admin/product/?limit=${limit}&page=${page}`)
+      .get(`https://cyan-breakable-antelope.cyclic.app/admin/product/?limit=${limit}&page=${page}`)
       .then((response) => {
         console.log(response.data);
         dispatch({
@@ -54,7 +54,7 @@ export const GetProducts =
 export const GetAllProduct = () => (dispatch) => {
   dispatch({ type: types.GET_ALLPRODUCT_REQUEST });
   return axios
-    .get("http://localhost:7000/admin/allproducts")
+    .get("https://cyan-breakable-antelope.cyclic.app/admin/allproducts")
     .then((response) => {
       console.log(response.data);
       dispatch({
@@ -71,7 +71,7 @@ export const GetAllProduct = () => (dispatch) => {
 export const GetSingleProduct = (id) => (dispatch) => {
   dispatch({ type: types.GET_SINGLEPRODUCT_REQUEST });
   return axios
-    .get(`http://localhost:7000/admin/singleproduct/${id}`)
+    .get(`https://cyan-breakable-antelope.cyclic.app/admin/singleproduct/${id}`)
     .then((response) => {
       console.log(response.data);
       saveData("singleProduct", response.data[0]);
@@ -89,7 +89,7 @@ export const GetSingleProduct = (id) => (dispatch) => {
 export const UpdateSingleProduct = (id, payload) => async (dispatch) => {
   dispatch({ type: types.UPDATE_PRODUCT_REQUEST });
   return axios
-    .patch(`http://localhost:7000/admin/updateproduct/${id}`, payload)
+    .patch(`https://cyan-breakable-antelope.cyclic.app/admin/updateproduct/${id}`, payload)
     .then((response) => {
       console.log(response.data);
       dispatch({
@@ -106,7 +106,7 @@ export const UpdateSingleProduct = (id, payload) => async (dispatch) => {
 export const AddNewProduct = (payload) => (dispatch) => {
   dispatch({ type: types.ADD_PRODUCT_REQUEST });
   return axios
-    .post(`http://localhost:7000/admin/addproduct`, payload)
+    .post(`https://cyan-breakable-antelope.cyclic.app/admin/addproduct`, payload)
     .then((response) => {
       console.log(response.data);
       dispatch({
@@ -123,7 +123,7 @@ export const AddNewProduct = (payload) => (dispatch) => {
 export const DeleteProduct = (id) => (dispatch) => {
   dispatch({ type: types.DELETE_PRODUCT_REQUEST });
   return axios
-    .delete(`http://localhost:7000/admin/deleteproduct/${id}`)
+    .delete(`https://cyan-breakable-antelope.cyclic.app/admin/deleteproduct/${id}`)
     .then((response) => {
       console.log(response.data);
       dispatch({
@@ -142,7 +142,7 @@ export const SortByPrice =
     dispatch({ type: types.GET_PRODUCT_REQUEST });
     return axios
       .get(
-        `http://localhost:7000/admin/product/?limit=${limit}&page=${page}&price=${price}`
+        `https://cyan-breakable-antelope.cyclic.app/admin/product/?limit=${limit}&page=${page}&price=${price}`
       )
       .then((response) => {
         console.log(response.data);
@@ -163,7 +163,7 @@ export const SortByQuantity =
     dispatch({ type: types.GET_PRODUCT_REQUEST });
     return axios
       .get(
-        `http://localhost:7000/admin/product/?limit=${limit}&page=${page}&quantity=${quantity}`
+        `https://cyan-breakable-antelope.cyclic.app/admin/product/?limit=${limit}&page=${page}&quantity=${quantity}`
       )
       .then((response) => {
         console.log(response.data);
@@ -181,7 +181,7 @@ export const SortByQuantity =
 export const GetAllCustomer = () => (dispatch) => {
   dispatch({ type: types.GET_ALLCUSTOMER_REQUEST });
   return axios
-    .get("http://localhost:7000/admin/allcustomer")
+    .get("https://cyan-breakable-antelope.cyclic.app/admin/allcustomer")
     .then((response) => {
       console.log(response.data);
       dispatch({
@@ -198,7 +198,7 @@ export const GetAllCustomer = () => (dispatch) => {
 export const GetSingleCustomer = (id) => (dispatch) => {
   dispatch({ type: types.GET_SINGLEPRODUCT_REQUEST });
   return axios
-    .get(`http://localhost:7000/admin/singlecustomer/${id}`)
+    .get(`https://cyan-breakable-antelope.cyclic.app/admin/singlecustomer/${id}`)
     .then((response) => {
       console.log(response.data);
       saveData("singleUser", response.data[0]);
@@ -216,7 +216,7 @@ export const GetSingleCustomer = (id) => (dispatch) => {
 export const DeleteSingleCustomer = (id) => (dispatch) => {
   dispatch({ type: types.GET_SINGLEPRODUCT_REQUEST });
   return axios
-    .delete(`http://localhost:7000/admin/deletecustomer/${id}`)
+    .delete(`https://cyan-breakable-antelope.cyclic.app/admin/deletecustomer/${id}`)
     .then((response) => {
       console.log(response.data);
       dispatch({
@@ -233,7 +233,7 @@ export const DeleteSingleCustomer = (id) => (dispatch) => {
 export const GetAllAdmins = () => (dispatch) => {
   dispatch({ type: types.GET_ALLADMINS_REQUEST });
   return axios
-    .get("http://localhost:7000/admin/alladmins")
+    .get("https://cyan-breakable-antelope.cyclic.app/admin/alladmins")
     .then((response) => {
       console.log(response.data);
       dispatch({
@@ -250,7 +250,7 @@ export const GetAllAdmins = () => (dispatch) => {
 export const GetSingleAdmin = (id) => (dispatch) => {
   dispatch({ type: types.GET_SINGLEPRODUCT_REQUEST });
   return axios
-    .get(`http://localhost:7000/admin/singleadmin/${id}`)
+    .get(`https://cyan-breakable-antelope.cyclic.app/admin/singleadmin/${id}`)
     .then((response) => {
       console.log(response.data);
       saveData("singleUser", response.data[0]);
@@ -268,7 +268,7 @@ export const GetSingleAdmin = (id) => (dispatch) => {
 export const DeleteSingleAdmin = (id) => (dispatch) => {
   dispatch({ type: types.GET_SINGLEPRODUCT_REQUEST });
   return axios
-    .delete(`http://localhost:7000/admin/deleteadmin/${id}`)
+    .delete(`https://cyan-breakable-antelope.cyclic.app/admin/deleteadmin/${id}`)
     .then((response) => {
       console.log(response.data);
       dispatch({

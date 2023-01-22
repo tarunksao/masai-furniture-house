@@ -10,6 +10,7 @@ import {
   import { useDispatch, useSelector } from "react-redux";
   import { useNavigate } from "react-router-dom";
   import { userLogin } from "../../redux/auth/auth.actions";
+import Navbar from "../../Components/Navbar";
   
   export const UserLogin = () => {
     const [loginForm, setLoginForm] = useState({
@@ -72,6 +73,7 @@ import {
   
     return (
       <Box>
+        <Navbar />
         <Box
           alignItems="center"
           h="100px"

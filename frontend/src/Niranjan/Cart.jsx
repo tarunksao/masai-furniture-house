@@ -21,6 +21,7 @@ import { fetchProducts,removeItem, } from "../redux/cart/cart.actions";
 import { NavLink } from "react-router-dom";
 import MapCartData from "./mapCartData";
 import Discount from "../Niranjan/Discount.gif"
+import Navbar from "../Components/Navbar";
 
 function Summary({
     subTotal,
@@ -40,7 +41,7 @@ function Summary({
             </HStack>
             {discount > 0 && (
               <HStack w={"100%"} justify={"space-between"} align={"center"}>
-                <Text>Discount</Text> <Text fontWeight={"bold"} letterSpacing={"2px"}>₹{discount}</Text>
+                <Text>Discount</Text> <Text fontWeight={"bold"} letterSpacing={"2px"} color='red'>-₹{discount}</Text>
               </HStack>
             )}
   
@@ -48,7 +49,7 @@ function Summary({
               <Text>Tax</Text> <Text fontWeight={"bold"} letterSpacing={"2px"}>{tax}%</Text>
             </HStack>
             <HStack w={"100%"} justify={"space-between"} align={"center"}>
-              <Text>Total</Text> <Text fontWeight={"bold"} letterSpacing={"2px"}>₹{total}</Text>
+              <Text>Total</Text> <Text fontWeight={"bold"} letterSpacing={"2px"} color='green'>₹{total}</Text>
             </HStack>
           </VStack>
   
@@ -92,7 +93,7 @@ function Summary({
     };
   
     const subTotal = cartProducts.reduce((tot, item) => {
-      return tot + item.price * item.quantity;
+      return tot + item.product.price * item.quantity;
     }, 0);
   
     const discount = (subTotal * discountPercent) / 100;
@@ -112,7 +113,7 @@ function Summary({
       },
     ];
   
-    const TAX = 18;
+    const TAX = 18 ;
   
     const onEnterPromoCode = (event) => {
       setPromoCode(event.target.value);
@@ -140,14 +141,14 @@ function Summary({
    
     return (
       <>
-
+        <Navbar />
   
   
         <Box w={"100%"} m={"auto"} >
   
           <Grid m={"auto"} w="95%" templateColumns={{ base: "repeat(1, 1fr)", sm: "repeat(1, 1fr)", md: "repeat(2, 70% 30%)", lg: "repeat(2, 70% 30%)" }} p={"20px 0px"}>
   
-            {(cartProducts.length==0)?  <Box>
+            {(cartProducts.length===0)?  <Box>
               <Heading mb={"20px"}>Your Cart is empty.</Heading>
   
                 <Button p={"5px 0px"} w={"100%"} colorScheme={"green"}>

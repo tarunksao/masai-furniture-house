@@ -15,7 +15,7 @@ import {
 export const fetchProducts = async (disptach) => {
   disptach({ type: GET_CART_ITEMS_LOADING });
   return axios
-    .get("http://localhost:7000/cart")
+    .get("https://cyan-breakable-antelope.cyclic.app/cart")
     .then((res) => {
       console.log(res.data);
       return disptach({ type: GET_CART_ITEMS_SUCCESS, payload: res.data });
@@ -26,7 +26,7 @@ export const fetchProducts = async (disptach) => {
 export const removeItem = (cartId) => async (dispatch) => {
   dispatch({ type: REMOVE_CART_ITEMS_LOADING });
   return axios
-    .delete(`http://localhost:7000/cart/${cartId}`)
+    .delete(`https://cyan-breakable-antelope.cyclic.app/cart/${cartId}`)
     .then((r) => {
       console.log(r);
       dispatch({ type: REMOVE_CART_ITEMS_SUCCESS, payload: r });
@@ -49,7 +49,7 @@ export const addToCart = (item) => async (dispatch) => {
   let token = localStorage.getItem('token');
   console.log(token);
   try{
-    let response = await axios.post('http://localhost:7000/cart/add', item, {
+    let response = await axios.post('https://cyan-breakable-antelope.cyclic.app/cart/add', item, {
       headers: {
         'Authorization': `${token}`,
         // 'Accept' : 'application/json',

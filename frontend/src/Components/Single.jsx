@@ -16,7 +16,7 @@ const Single = () => {
 
 
   const getSingleProduct = () => {
-    axios.get("http://localhost:7000/products/furniture").then((res) => setData(res.data))
+    axios.get("https://cyan-breakable-antelope.cyclic.app/products/furniture").then((res) => setData(res.data))
       .catch((err) => console.log(err))
   }
 
@@ -33,7 +33,7 @@ const Single = () => {
 
     if (id) {
       curr = data.filter((watch) => watch._id === id);
-      console.log(curr)
+      // console.log(curr)
 
       current && setCurrent(curr)
       // console.log(current)
@@ -63,5 +63,3 @@ const Single = () => {
 }
 
 export default Single
-
-
