@@ -1,0 +1,249 @@
+ $p-color:#484848;
+ $span-font:1.5rem;
+ $card-font:.875rem;
+ $card-height:1.42857;
+ $font-weight:700;
+
+ @mixin theme($border:3px) {
+     letter-spacing: 0;
+     font-weight: 400;
+     font-size: $card-font;
+     line-height: 1.5;
+     color: $p-color;
+
+ }
+
+ @mixin card($border:3px) {
+     border: 0;
+     margin: 0 7px;
+     line-height: $card-height;
+ }
+
+ hr {
+     width: 98%;
+     background-color: black;
+ }
+
+ .top-imgs {
+     margin-top: 50px
+ }
+
+ .top-imgs img {
+     margin: 6px;
+ }
+
+ .left p {
+     font-size: 1.25rem;
+     line-height: 1.6;
+     padding-bottom: 1.5rem;
+     margin: 20px 0
+ }
+
+ .left span {
+     margin-bottom: 0.5rem;
+     color: #484848;
+     line-height: 1.5;
+ }
+
+ .left span span {
+     background-color: #111;
+     padding: 0.25rem 0.75rem;
+     font-weight: 700;
+     color: #fff;
+     line-height: 1.25;
+ }
+
+ .left .pro-detail {
+     padding: 2.5rem 0;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .left .pro-detail span {
+     font-size: 1.5rem;
+     font-weight: 700;
+     color: #000;
+ }
+
+ .left .pro-detail button {
+     float: right;
+     color: black;
+     background-color: white;
+     border: 0;
+ }
+
+ .left .pro-detail-ar {
+    padding: 2.5rem 0;
+    align-items: center;
+    justify-content: center;
+}
+ .left .pro-detail-ar span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+}
+ .left .pro-detail-ar button {
+    float: left;
+    color: black;
+    background-color: white;
+    border: 0;
+}
+
+ // /////right///////////////////////////////////////
+
+ .right {
+     padding: 22px;
+     line-height: 2;
+     margin-top: 75px;
+ }
+
+ section .right .span {
+     margin-left: 10px;
+ }
+
+ .right .span sup {
+     font-size: 15px;
+ }
+
+ section .right head,
+ .gursken span {
+     font-size: 1.375rem;
+     line-height: 1.45455;
+     font-weight: bolder;
+     color: #000;
+ }
+
+ .right p {
+     font-size: .875rem;
+     line-height: 1.42857;
+     color: #484848;
+ }
+
+ .right p span {
+     line-height: 1.125rem;
+     margin-bottom: 1.5rem;
+     color: #484848;
+ }
+
+
+ section .right .right-btn .heart {
+     border: 1px solid #dfdfdf;
+     font-size: 20px;
+
+     justify-content: center;
+     align-items: center;
+     height: 3.5rem;
+     width: 17%;
+     border-radius: 50%;
+     -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+     -ms-border-radius: 50%;
+     -o-border-radius: 50%;
+ }
+
+
+ section .right .right-icon {
+     color: black;
+     font-size: 17px;
+     margin: 0 7px;
+ }
+
+
+
+ // //////left/////////////////////////////////////////////////////////////
+
+
+ .content .left #left-p {
+     color: $p-color;
+     font-size: 1.25rem;
+     line-height: 1.6;
+     padding-bottom: 1.5rem;
+ }
+
+ section .left .out-span {
+     display: block;
+     margin-bottom: 0.5rem;
+     color: $p-color;
+     line-height: 1.5;
+ }
+
+ section .left .in-span {
+     background-color: #111;
+     padding: 0.25rem 0.75rem;
+     font-weight: 700;
+     color: #fff;
+     line-height: 1.25;
+ }
+
+ section .left .pro-detail {
+     padding: 2.5rem 0;
+     align-items: center;
+     justify-content: center;
+ }
+
+ section .left .pro-detail span {
+     font-size: $span-font;
+     font-weight: 700;
+ }
+
+ section .left .pro-detail-ar {
+    padding: 2.5rem 0;
+    align-items: center;
+    justify-content: center;
+}
+
+section .left .pro-detail-ar span {
+    font-size: $span-font;
+    font-weight: 700;
+}
+
+
+ // //////////slide 1/////////////////////////////////////////////////////////////////
+
+ .card {
+     @include card()
+ }
+
+ //  #slide-one{line-height: 1px;}
+
+ #slide-one h4,
+ h5 {
+     font-size: $card-font;
+     line-height: $card-height;
+     font-weight: $font-weight;
+ }
+
+ #slide-one .card p {
+     @include theme()
+ }
+
+ #slide-one .card .card-span {
+     font-weight: $font-weight;
+     font-size: 1.375rem;
+     color: $p-color
+ }
+
+ #slide-one .pro-desc {
+     color: $p-color;
+     font-size: 15px;
+ }
+
+.slide-head{font-size: 1.5rem;
+    line-height: 1.45;
+    letter-spacing: -.0042em;
+    color: #111;
+    font-weight: bolder;
+    margin-bottom: 40px;
+}
+
+ .gursken {
+     margin-top: 80px;
+ }
+
+ // /////////slide 2//////////////////////////////////////////////////////////////////
+
+
+ #view-pro .pictures {
+     margin: 0 30px 0 0;
+     padding: 10px;
+ }

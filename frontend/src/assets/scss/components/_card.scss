@@ -1,0 +1,96 @@
+.categories-slidder {
+  padding-top: 4.5rem;
+
+  @include slidder;
+  @media only screen and (max-width: 890px) {
+    height: fit-content;
+  }
+  @media screen and (min-width: 900px) {
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    height: fit-content;
+  }
+}
+.category-card {
+  border: none;
+  text-decoration: none;
+  color: $small-text-color;
+  font-size: $small-text-size;
+  img {
+    @include radius(0px);
+  }
+  &:hover {
+    text-decoration: underline;
+    color: $default-text-color;
+  }
+
+  .category-body {
+    padding-left: 0px;
+  }
+}
+
+.row-card {
+  text-decoration: none;
+  -moz-text-decoration: none;
+  font-size: $title-font-size;
+  font-weight: $title-font-weight;
+  display: flex;
+  flex-direction: row;
+  &:hover {
+    text-decoration: underline;
+    -moz-text-decoration: underline;
+    text-decoration-color: $secondary-color;
+    -moz-text-decoration-color: $secondary-color;
+  }
+  .card-right {
+    padding: 20px;
+    background-color: #00264d;
+    display: flex;
+    flex-direction: column;
+    color: $secondary-color;
+    .card-btn {
+      @include radius(50px);
+      border: none;
+      width: 60px;
+      height: 60px;
+      margin-top: auto;
+      background-color: $default-background-color;
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+    @media (max-width: 768px) {
+      .card-btn{
+        margin-top: 20%;
+      }
+  }
+  }
+}
+
+.step-card {
+  border: none;
+  color: $small-text-color;
+  font-size: $small-text-size;
+  margin: 0 !important;
+  .step-body {
+    text-align: center;
+    background-color: $secondary-color;
+    svg {
+      fill: $small-text-color;
+      width: 1.875rem;
+      height: 1.875rem;
+    }
+
+    .step-title {
+      color: $default-text-color;
+      font-size: $small-text-size;
+      font-weight: $title-font-weight;
+    }
+
+    .step-link {
+      text-decoration-color: $small-text-color;
+      -moz-text-decoration-color: $small-text-color;
+      color: $small-text-color;
+    }
+  }
+}

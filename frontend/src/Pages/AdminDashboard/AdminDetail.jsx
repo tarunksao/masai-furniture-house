@@ -10,19 +10,22 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ImUserTie } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 import { SIGNOUT } from "../../redux/admin/admin.types";
+import { getLocalData } from "../../Utils/localStorageData";
 
 const AdminDetail = () => {
-  const adminData = useSelector((store) => store.admin.adminData);
+  const adminData = getLocalData("loggedUser");
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const toast = useToast();
 
   const handleSignOut = () => {
+    localStorage.removeItem("isAuth");
+    localStorage.removeItem("loggedUser");
     setTimeout(() => {
       navigate("/admin/login");
     }, 2000);
@@ -42,8 +45,8 @@ const AdminDetail = () => {
       <Menu>
         <MenuButton>
           <ImUserTie
-            color={{ base: "black", sm: "black", md: "white", lg: "white" }}
             cursor="pointer"
+            color={{ base: "black", sm: "black", md: "white", lg: "white" }}
             size={20}
           />
         </MenuButton>
@@ -53,11 +56,16 @@ const AdminDetail = () => {
           w={["90%", "90%", "300px", "300px"]}
           p="1rem 1.5rem"
         >
-          <Text textAlign="center" fontSize="1.2rem" fontWeight="bold">
-            Hi, {adminData ? adminData.user[0].adminName : "Admin"}
+          <Text
+            textAlign="center"
+            fontSize="1.2rem"
+            fontWeight="bold"
+            color={"black"}
+          >
+            Hi, {adminData ? adminData.adminName : "Admin"}
           </Text>
-          <Text textAlign="center" m="7px 0px" fontSize="1rem">
-            {adminData ? adminData.user[0].email : "Email"}
+          <Text textAlign="center" m="7px 0px" fontSize="1rem" color={"black"}>
+            {adminData ? adminData.email : "Email"}
           </Text>
           <Flex justify="center">
             <Badge

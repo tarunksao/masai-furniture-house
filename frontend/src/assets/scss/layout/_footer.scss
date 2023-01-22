@@ -1,0 +1,121 @@
+footer {
+  background-color: $secondary-color;
+  margin-top: 5rem;
+
+  &.footer-ltr {
+    padding: 5rem $body-padding-end 0 $body-padding-start;
+  }
+
+  &.footer-rtl {
+    padding: 5rem $body-padding-start 0 $body-padding-end;
+  }
+
+  ul {
+    padding: 0;
+
+    p {
+      color: $default-text-color;
+      font-weight: 700;
+      line-height: 2.2rem;
+    }
+
+    li {
+      color: $small-text-color;
+      margin-bottom: 0.75rem;
+      font-size: $medium-text-size;
+    }
+  }
+
+  .social-media-links {
+    li {
+      padding-right: 3rem;
+
+      a {
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $border-color;
+        @include radius(50%);
+
+        @include borderHover;
+
+        i {
+          font-size: 1.4rem;
+          color: $small-text-color;
+        }
+      }
+    }
+  }
+
+  .language-selector {
+    font-weight: 700;
+    font-size: $small-text-size;
+
+    .country-selector {
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+      border: 1px solid $border-color;
+      @include radius(20px);
+
+      @include borderHover;
+    }
+
+    .language-switch {
+      select {
+        font-weight: 700;
+        background-color: transparent;
+        border: 1px solid $border-color;
+        @include radius(20px);
+
+        @include borderHover;
+      }
+    }
+  }
+
+  .copyright {
+    p {
+      font-size: $small-text-size;
+    }
+  }
+
+  .legal-links {
+    font-size: $small-text-size;
+
+    li {
+      padding-left: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  footer {
+    padding: 5rem 4% 0;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  footer {
+    &.footer-ltr,
+    &.footer-rtl {
+      padding: 5rem 4rem 0;
+    }
+
+    .footer-social-languages {
+      flex-direction: column;
+
+      .country-selector {
+        margin-left: 0;
+      }
+    }
+
+    .footer-info {
+      flex-direction: column;
+
+      li:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+}

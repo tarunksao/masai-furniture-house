@@ -1,0 +1,383 @@
+.filter-row {
+  padding: 10px 0;
+  background-color: white;
+  border-bottom: 1px solid $border-color;
+
+  .filter-right-side {
+    justify-content: flex-end;
+
+    .no-of-items {
+      font-size: $small-text-size;
+      color: $small-text-color;
+      margin: 0;
+      padding-right: 1rem;
+    }
+  }
+}
+@media only screen and (max-width: 1120px)and (min-width: 992px) {
+  .hidden-filter{
+    display: none;
+  }
+
+}
+@media only screen and (max-width: 992px) {
+  .filter-row {
+    .filter-right-side {
+      justify-content: space-between;
+      padding-bottom: 0.8rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .scroll {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+
+    &::-webkit-scrollbar {
+      height: 3px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: $secondary-color;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: $default-text-color;
+    }
+  }
+
+  
+}
+
+.filter-btn {
+  @include radius(20px);
+  background-color: $secondary-color;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.6rem 1rem;
+  min-width: fit-content;
+
+  i {
+    margin-left: 10px;
+  }
+
+  &:hover {
+    background-color: darken($secondary-color, 5);
+  }
+
+  &:active {
+    background-color: $default-text-color;
+    color: $default-background-color;
+  }
+}
+
+.description {
+  @include HandleParagraph();
+}
+
+.section-title {
+  margin: 1.875rem 0;
+}
+
+.prod-container {
+  padding: 1rem 0.875rem;
+  border-bottom: 1px solid $border-color;
+
+  header {
+    opacity: 0;
+  }
+
+  &:hover header {
+    opacity: 1;
+  }
+
+  &:hover .card-icon-ltr {
+    opacity: 1;
+  }
+  &:hover .card-icon-rtl {
+    opacity: 1;
+  }
+  .card-icon-ltr {
+    font-size: 22px;
+    font-weight: bold;
+    background-color: #0058a3;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+  }
+  .card-icon-rtl {
+    font-size: 22px;
+    font-weight: bold;
+    background-color: #0058a3;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .prod-container {
+    padding: 1rem 0.875rem;
+    border: 1px solid $border-color;
+  }
+}
+
+.new {
+  color: $orange;
+}
+
+.selectedV {
+  border: 1px solid $small-text-color;
+}
+
+.variant-container {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  margin-left: 0.25rem;
+  cursor: pointer;
+  margin-bottom: 0.25rem;
+  box-sizing: border-box;
+
+  &:hover {
+    border: 1px solid $small-text-color;
+  }
+}
+
+.variant-img {
+  width: 2.375rem;
+  max-width: 2.375rem;
+  max-height: 2.375rem;
+}
+
+.offcanvas-footer {
+  padding: 1rem 1rem;
+  border-top: 1px solid #dee2e6;
+
+  .clear-btn {
+    border: 1px solid #dee2e6;
+
+    &:hover {
+      border: 1px solid $default-text-color;
+    }
+  }
+
+  .view-btn {
+    background-color: $default-text-color;
+    color: $default-background-color;
+
+    &:hover {
+      background-color: lighten($default-text-color, 10);
+    }
+    // <<<<<<< HEAD
+  }
+
+  .carousel {
+    position: relative;
+
+    & > button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0.5rem 0.8rem;
+      cursor: pointer;
+      &.right-chevron {
+        right: 0;
+      }
+
+      .fas {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .carousel-body {
+    overflow-x: auto;
+    padding-bottom: 2.5rem;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $secondary-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $default-text-color;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .description-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: #ffd930;
+      padding: 2rem;
+
+      &.red-bg {
+        background-color: #cc0009;
+        color: #fff;
+      }
+
+      &.light-brown-bg {
+        background-color: #a98c5b;
+      }
+
+      &.brown-bg {
+        background-color: #b5775a;
+      }
+
+      &.dark-brown-bg {
+        background-color: #604201;
+        color: #fff;
+      }
+
+      &.dark-orange-bg {
+        background-color: #c95007;
+        color: #fff;
+      }
+
+      &.dark-green-bg {
+        background-color: #4a6836;
+        color: #fff;
+      }
+
+      &.dark-blue-bg {
+        background-color: #4a6497;
+        color: #fff;
+      }
+
+      &.blue-bg {
+        background-color: #1052bc;
+        color: #fff;
+      }
+
+      .description-body {
+        min-height: 13rem;
+
+        h3 {
+          line-height: 2.5rem;
+          font-weight: 700;
+          font-size: 1.5rem;
+        }
+      }
+
+      button {
+        width: 3.5rem;
+        height: 3.5rem;
+        background-color: #000;
+        @include radius(50%);
+
+        i {
+          color: #fff;
+          font-size: 1.2rem;
+        }
+
+        &.white-btn {
+          background-color: #fff;
+
+          i {
+            color: #000;
+          }
+        }
+      }
+    }
+
+    .product-highlight {
+      color: #ed022a;
+      @extend .product-header;
+    }
+
+    .product-header {
+      font-weight: 700;
+      font-size: $medium-text-size;
+      margin: 0;
+    }
+
+    .product-description {
+      font-size: $medium-text-size;
+      color: $small-text-color;
+      margin: 0;
+    }
+
+    .price {
+      .line-through {
+        text-decoration: line-through;
+      }
+    }
+
+    .more-options {
+      color: $small-text-color;
+      font-size: $medium-text-size;
+    }
+  }
+
+  .more-ikea {
+    .description-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .description-body {
+        margin-top: 10%;
+        min-height: 10rem;
+
+        h3 {
+          font-size: 1rem;
+          font-weight: 900;
+        }
+
+        p {
+          font-size: $medium-text-size;
+        }
+      }
+
+      button {
+        width: 35%;
+      }
+    }
+  }
+
+  .more-ideas-gallery {
+    height: 340rem;
+  }
+
+  .welcome-ikea {
+    font-size: $small-text-size;
+    color: $small-text-color;
+    width: 60%;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .teaser {
+      .carousel-body {
+        overflow-x: auto !important;
+      }
+    }
+  }
+}
+
+.padA {
+  padding: 0.25rem;
+}
+
+.indx1 {
+  z-index: 1;
+}

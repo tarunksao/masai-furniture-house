@@ -1,0 +1,88 @@
+@import '../abstracts/mixins'  ;
+
+// var 
+$txt-color: rgb(117, 117, 117);
+
+.userName{margin-top: 200px}
+// Left Section
+.log-parent {
+    margin-top: 60px;
+
+    .login-heading {
+        margin-top: 150px ;
+        h3 {
+            font-weight: bold;
+        }
+
+        p {
+            @include HandleParagraph()
+        }
+
+        button {
+            @include HandleButton();
+            background-color: transparent;
+        }
+
+        button:hover {
+            @include HoverButton();
+
+        }
+    }
+
+    // Right Section
+    .login-form {
+        .sec-inp {
+            margin-bottom: 50px;
+        }
+
+        a {
+            color: $txt-color;
+            font-size: 16px;
+        }
+
+        .input-log .input-sign-form {
+            @include HandleInput();
+        }
+
+        button {
+            @include HandleButton();
+            background-color: rgb(34, 34, 34);
+            color: white;
+            width: 100%;
+        }
+
+        button:hover {@include ShoppingButtonHover()}
+
+        .input-sign-form { margin-top: 25px;}
+
+        .selct-form-sign { outline: none;}
+        
+        .selct-label-form-sign { margin-top: 30px;}
+
+    }
+
+
+
+    .eye{
+        position: absolute;
+        bottom: 10px;
+        margin:0 10px;
+        right:0;
+        cursor: pointer;
+    }    
+    .eyeAr{
+        position: absolute;
+        bottom: 10px;
+        margin:0 10px;
+        left:0;
+        cursor: pointer;
+    }
+    .w100{
+        width: '100%';
+    }
+
+    .inpCont{
+        position: relative;
+    }
+   
+}

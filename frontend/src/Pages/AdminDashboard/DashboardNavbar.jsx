@@ -2,7 +2,6 @@ import { Box, Flex, Image, Text, useDisclosure } from "@chakra-ui/react";
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
@@ -74,10 +73,13 @@ const Navbar = () => {
             <MdProductionQuantityLimits color="white" />
             <Text color="white">Orders</Text>
           </Flex>
-          <Flex alignItems="center" gap="0.3rem">
-            <HiUserGroup color="white" />
-            <Text color="white">Users</Text>
-          </Flex>
+          <Link to={"/admin/allusers"}>
+            <Flex alignItems="center" gap="0.3rem">
+              <HiUserGroup color="white" />
+              <Text color="white">Users</Text>
+            </Flex>
+          </Link>
+
           <Link to={"/admin/register"}>
             <Flex alignItems="center" gap="0.3rem">
               <ImUserPlus color="white" />
@@ -85,7 +87,7 @@ const Navbar = () => {
             </Flex>
           </Link>
 
-          <Box display="flex" alignItem="center">
+          <Box display="flex" alignItem="center" color="white">
             <AdminDetail />
           </Box>
         </Flex>
@@ -118,10 +120,13 @@ const Navbar = () => {
                 <MdProductionQuantityLimits />
                 <Text>Orders</Text>
               </Flex>
-              <Flex m="25px auto" style={hamStyle}>
-                <HiUserGroup />
-                <Text>Users</Text>
-              </Flex>
+              <Link to={"/admin/allusers"}>
+                <Flex m="25px auto" style={hamStyle}>
+                  <HiUserGroup />
+                  <Text>Users</Text>
+                </Flex>
+              </Link>
+
               <Link to="/admin/register">
                 <Flex m="25px auto" style={hamStyle}>
                   <ImUserPlus />
@@ -129,7 +134,7 @@ const Navbar = () => {
                 </Flex>
               </Link>
 
-              <Box display="flex" style={hamStyle} bg="black">
+              <Box display="flex" style={hamStyle} bg="black" color="white">
                 <AdminDetail />
               </Box>
             </DrawerBody>

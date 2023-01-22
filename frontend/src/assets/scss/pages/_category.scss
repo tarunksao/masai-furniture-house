@@ -1,0 +1,76 @@
+.see-all-btn {
+    @include SeeAllBtn;
+}
+
+.carousel-edit{
+    .image-card {
+        position: relative;
+        display: inline-flex;
+        .button-holder {
+            width: 100%;
+            position: absolute;
+            justify-content: center;
+            text-align: center;
+            bottom: 1.5rem;
+            &>button {
+                @include SeeAllBtn;
+
+                &:hover {
+                    background-color: $secondary-color;
+                }
+            }
+        }
+    }
+    &>button{
+        z-index: 55555;
+    }
+}
+
+.image-container {
+    position: relative;
+
+    .on-image-btn {
+        position: absolute;
+        @include radius(50%);
+        background: white;
+        box-shadow: 0px 0px 0px 10px #0000002e;
+        width: 0.75rem;
+        height: 0.75rem;
+
+        &:hover {
+            box-shadow: 0px 0px 0px 8px #00000067;
+            width: 0.60rem;
+            height: 0.60rem;
+        }
+    }
+
+    .image1-position {
+        top: 15%;
+        right: 30%;
+    }
+
+    .image2-position {
+        top: 50%;
+        right: 75%;
+    }
+
+    .image3-position {
+        top: 70%;
+        right: 60%;
+    }
+
+    .image4-position {
+        top: 80%;
+        right: 25%;
+    }
+
+    .image5-position {
+        top: 60%;
+        right: 25%;
+    }
+
+    .image6-position {
+        top: 35%;
+        right: 18%;
+    }
+}
