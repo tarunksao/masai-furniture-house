@@ -6,7 +6,7 @@ import styles from "./product.module.css";
 import { useToast } from '@chakra-ui/react';
 import Filter from './Filter';
 import { useDispatch } from 'react-redux';
-import './Top.css';
+import Navbar from './Navbar';
 
 const Furniture = () => {
     const [data, setData] = React.useState([])
@@ -20,7 +20,7 @@ const Furniture = () => {
 
 
     const getFurniture = (params) => {
-        axios.get("http://localhost:7000/products/furniture", params).then((res) => setData(res.data))
+        axios.get("https://cyan-breakable-antelope.cyclic.app/products/furniture", params).then((res) => setData(res.data))
             .catch((err) => console.log(err))
     }
 
@@ -34,6 +34,7 @@ const Furniture = () => {
 
     return (
         <>
+        <Navbar />
             <div className='top'>
                 <p>Products</p>
                 <p> Furniture </p>

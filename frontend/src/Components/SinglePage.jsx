@@ -5,6 +5,7 @@ import { getProduct } from '../redux/products/products.actions'
 import "./Singlepage.css"
 import { Box, Button, Flex, Input, Stack } from '@chakra-ui/react';
 import { ProductDetails } from './ProductDetalis';
+import Navbar from './Navbar';
 
 const SinglePage = () => {
     const { id } = useParams()
@@ -35,6 +36,7 @@ const SinglePage = () => {
 
     return (
         <>
+        <Navbar />
             <ProductDetails
                 image={current.image_src}
                 brand={current.brand_name}
@@ -49,5 +51,3 @@ const SinglePage = () => {
 }
 
 export default SinglePage
-
-

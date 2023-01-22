@@ -21,7 +21,7 @@ import { useTranslation } from 'react-i18next';
 import { updateUserStorageByID } from './services/firebase';
 import Cart from "./Niranjan/Cart";
 import Checkout from "./Pages/Checkout";
-import Navbar from "./Components/Navbar";
+// import Navbar from "./Components/Navbar";
 import {ChakraProvider} from '@chakra-ui/react';
 
 
@@ -29,9 +29,6 @@ function App() {
   const { i18n } = useTranslation();
   return (
     <Box dir={i18n.dir()} >
-      <ChakraProvider>
-        <Navbar />
-      </ChakraProvider>
        <Routes className={`${
           i18n.dir() === 'ltr' ? 'body-container-ltr' : 'body-container-rtl'
         }`} >

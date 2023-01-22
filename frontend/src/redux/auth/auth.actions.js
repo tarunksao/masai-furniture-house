@@ -6,7 +6,7 @@ export const userLogin = (creeds) => async (dispatch) => {
   dispatch({ type: LOGIN_REQUEST });
 
   try{
-    let response = await axios.post('http://localhost:7000/users/login', creeds);
+    let response = await axios.post('https://cyan-breakable-antelope.cyclic.app/users/login', creeds);
     let data = await response.data;
     console.log('user login Data:', data);
     axios.defaults.headers.common["Authorization"] = data.token;
@@ -23,7 +23,7 @@ export const userRegister = (creeds) => async (dispatch) => {
     dispatch({ type: REGISTER_REQUEST });
 
     try{
-      let response = await axios.post('http://localhost:7000/users/register', creeds);
+      let response = await axios.post('https://cyan-breakable-antelope.cyclic.app/users/register', creeds);
       let data = await response.data;
       console.log('user register Data:', data);
       dispatch({type:REGISTER_SUCCESS, payload:data});
@@ -36,7 +36,7 @@ export const userRegister = (creeds) => async (dispatch) => {
 
 export const userLogout = () => async (dispatch) => {
     try{
-        let response = await axios.get('http://localhost:7000/users/logout');
+        let response = await axios.get('https://cyan-breakable-antelope.cyclic.app/users/logout');
         let data = await response.data;
         console.log('User Logout Data:', data);
         localStorage.removeItem('token');

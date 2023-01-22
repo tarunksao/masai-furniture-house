@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Top.css";
 import Filter from './Filter';
-
+import Navbar from "../Components/Navbar";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Box, Button, Flex, Grid, Select, Spacer, Text, boxShadow, border, borderColor, borderRadius } from "@chakra-ui/react";
@@ -23,6 +23,7 @@ const Top = () => {
 
     return (
         <Box width="fit-content">
+            <Navbar />
             <div className='top'>
                 <p>Products</p>
                 <p>furniture</p>

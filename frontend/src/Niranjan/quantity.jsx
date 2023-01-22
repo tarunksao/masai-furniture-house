@@ -4,7 +4,7 @@ import { increaseCartQuantity,decreaseCartQuantity} from '../redux/cart/cart.act
 import { useDispatch, useSelector } from 'react-redux'
 
 const Quantity = ({id,quantity}) => {
-    const cartProducts = useSelector((store)=>(store.cart.data))
+    const cartProducts = useSelector((store)=>(store.cart.data.cart))
      console.log(cartProducts);
    const dispatch = useDispatch()
    return (

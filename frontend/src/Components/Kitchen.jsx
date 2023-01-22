@@ -6,6 +6,7 @@ import styles from "./product.module.css";
 import { useToast } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import "./Top.css";
+import Navbar from './Navbar';
 const Kitchen = () => {
     const [data, setData] = React.useState([])
     const toast = useToast()
@@ -16,7 +17,7 @@ const Kitchen = () => {
 
 
     const getKitchen = () => {
-        axios.get("http://localhost:7000/products/kitchen & appliances").then((res) => setData(res.data))
+        axios.get("https://cyan-breakable-antelope.cyclic.app/products/kitchen & appliances").then((res) => setData(res.data))
             .catch((err) => console.log(err))
     }
     console.log(data)
@@ -31,6 +32,7 @@ const Kitchen = () => {
 
     return (
         <>
+        <Navbar />
             <div className='top'>
                 <p>Products</p>
                 <p>Kitchen & appliances</p>

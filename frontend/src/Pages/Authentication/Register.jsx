@@ -12,6 +12,7 @@ import {
   import { useDispatch, useSelector, shallowEqual } from "react-redux";
   import { useNavigate } from "react-router-dom";
 import { userRegister } from "../../redux/auth/auth.actions";
+import Navbar from "../../Components/Navbar";
   
   const UserRegister = () => {
     const [userDetail, setUserDetail] = useState({
@@ -93,6 +94,7 @@ import { userRegister } from "../../redux/auth/auth.actions";
   
     return (
       <>
+      <Navbar />
         <Box maxW='full' bgColor='bisque' h='100vh'>
           <Box
             w={{ base: "90%", sm: "70%", md: "60%", lg: "30%" }}

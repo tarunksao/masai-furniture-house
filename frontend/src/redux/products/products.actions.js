@@ -23,7 +23,7 @@ const getproductSuccess =(payload)=>{
  
  export const getProduct=(params)=>(dispatch)=>{
    dispatch(getproductRequest())
-   return axios.get("http://localhost:7000/products",params)
+   return axios.get("https://cyan-breakable-antelope.cyclic.app/products",params)
    .then((r)=>{
       dispatch(getproductSuccess(r.data.allProduct))
     //   console.log(r.data.allProduct)
@@ -35,7 +35,7 @@ const getproductSuccess =(payload)=>{
  
  export const getCategory=(params)=>(dispatch)=>{
    dispatch(getproductRequest())
-   return axios.get(`http://localhost:7000/products/${params}`)
+   return axios.get(`https://cyan-breakable-antelope.cyclic.app/products/${params}`)
    .then((r)=>{
       dispatch(getproductSuccess(r.data.allProduct))
     //   console.log(r.data.allProduct)
