@@ -1,0 +1,129 @@
+// var
+$txt-color: rgb(117, 117, 117);
+$text-position: center;
+$fixed-number-margin: 20px;
+
+// Center Section
+.fav-parent {
+  .shopping-header {
+    h3 {
+      font-weight: bold;
+      margin-bottom: $fixed-number-margin;
+    }
+
+    h6 {
+      padding-top: $fixed-number-margin;
+    }
+
+    .shopping-total-price {
+      @include HandleFlexItems();
+
+      button {
+        @include ShoppingButton();
+      }
+    }
+  }
+
+  .shopping-page {
+    margin-top: $fixed-number-margin;
+
+    .shop-section {
+      @include HandleFlexItems();
+      @include HandleBoxForEachProduct();
+      margin-bottom: $fixed-number-margin;
+
+      .shopping-list {
+        display: flex;
+        align-items: center;
+
+        .shop-icon {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .prod-box {
+            margin-bottom: 10px;
+
+            select {
+              @include HandleSelect();
+            }
+
+            i {
+              opacity: 0.6;
+            }
+          }
+        }
+
+        .shopping-details {
+          display: flex;
+          flex: 9;
+
+          .shopping-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 1rem;
+
+            img {
+              @include HandleProductImage();
+            }
+          }
+
+          .shopping-info {
+            flex: 2;
+            padding: $fixed-number-margin 1rem 0;
+
+            h6 {
+              font-weight: bold;
+            }
+
+            p {
+              color: $txt-color;
+            }
+          }
+        }
+      }
+    }
+
+    .last-sec {
+      margin-top: 80px;
+      height: 400px;
+      @include HandleBoxForEachProduct;
+
+      .shopping-total-price {
+        @include HandleFlexItems();
+        margin-bottom: $fixed-number-margin;
+
+        button {
+          @include ShoppingButton();
+        }
+      }
+
+      .pay-box {
+        @include HandleFlexItems();
+        justify-content: space-around;
+        margin-bottom: $fixed-number-margin;
+      }
+
+      .txttxt {
+        text-align: $text-position;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .shopping-details {
+    flex-direction: column;
+
+    .shopping-img {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

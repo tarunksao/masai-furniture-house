@@ -1,0 +1,122 @@
+// Style for login
+@mixin HandleButton {
+  border-radius: 30px;
+  padding: 15px 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: 70px;
+}
+
+@mixin HoverButton {
+  @include HandleButton();
+  background-color: #dad8d8;
+}
+
+@mixin borderHover {
+  &:hover {
+    border: 1px solid #868686;
+  }
+}
+
+@mixin HandleParagraph {
+  color: $txt-color;
+  line-height: 1.6em;
+  margin-top: 30px;
+}
+
+@mixin HandleInput {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #000;
+  margin-top: 20px ;
+}
+
+// Style for favoutite and shopping
+@mixin ShoppingButton {
+  background-color: #0f58a1;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+@mixin ShoppingButtonHover {
+  opacity: 0.8;
+}
+
+@mixin HandleFlexItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin HandleTxtProduct {
+  text-align: $text-position;
+  font-weight: bold;
+}
+
+@mixin HandleProductImage {
+  width: 200px;
+  height: 200px;
+}
+
+@mixin HandleSelect {
+  padding: 6px 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+@mixin HandleBoxForEachProduct {
+  background-color: white;
+  box-shadow: 4px 4px 4px 4px rgb(233, 232, 232);
+  width: 100%;
+  padding: $fixed-number-margin;
+}
+
+@mixin radius($number) {
+  border-radius: $number;
+  -webkit-border-radius: $number;
+  -moz-border-radius: $number;
+  -ms-border-radius: $number;
+  -o-border-radius: $number;
+}
+
+@mixin SeeAllBtn {
+  @include HandleButton;
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  outline: solid;
+  outline-width: 1px;
+  outline-color: $border-color;
+  background-color: $default-background-color;
+  font-size: $small-text-size;
+  font-weight: $title-font-weight;
+  &:hover{
+    outline-color: $small-text-color;
+  }
+}
+@mixin slidder {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 10px;
+
+  &::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $secondary-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $default-text-color;
+  }
+}

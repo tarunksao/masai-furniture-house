@@ -21,30 +21,30 @@ import Checkout from "./Pages/Checkout";
 function App() {
   const { i18n } = useTranslation();
   return (
+    <>
+      <Box dir={i18n.dir()} >
 
-    <Box dir={i18n.dir()} >
-       <Routes className={`${
-          i18n.dir() === 'ltr' ? 'body-container-ltr' : 'body-container-rtl'
-        }`} >
-        <Route path='/' element={<Home/>}></Route>
 
-       <Routes>
-        <Route path='/' element={<Top/>}></Route>
+        <Routes className={`${i18n.dir() === 'ltr' ? 'body-container-ltr' : 'body-container-rtl'
+          }`} >
+          <Route path='/' element={<Home />}></Route>
 
-        <Route path="/product/:id" element={<SinglePage/>} />
-        <Route path="/product/storage" element={<Storage/>} />
-        <Route path="/product/kitchen" element={<Kitchen/>} />
-        <Route path="/product/furniture" element={<Furniture/>} />
-        <Route path="/furniture/Single/:id" element={<Single/>} />
-        <Route path="/cart" element={<Cart/>} />
-        <Route path="/checkout" element={<Checkout/>} />
-      </Routes>
+          <Route path='/top' element={<Top />}></Route>
 
-    // <Box>
-    //   {/* if you are not comment this you are not able to see checkout and cart page  */}
-    //   {/* <AllRoutes_NS /> */}
-    //   <AdminRoutes />
-    // </Box>
+          <Route path="/product/:id" element={<SinglePage />} />
+          <Route path="/product/storage" element={<Storage />} />
+          <Route path="/product/kitchen" element={<Kitchen />} />
+          <Route path="/product/furniture" element={<Furniture />} />
+          <Route path="/furniture/Single/:id" element={<Single />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+
+
+        {/* <AllRoutes_NS />
+       <AdminRoutes /> */}
+      </Box>
+    </>
   );
 }
 

@@ -1,0 +1,191 @@
+.carousel {
+  position: relative;
+
+  & > button {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+
+    &.right-chevron {
+      right: 0;
+    }
+    &.left-chevron {
+      left: 0;
+    }
+    .fas {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.carousel-body {
+  overflow-x: auto;
+  padding-bottom: 2.5rem;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $secondary-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $default-text-color;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .description-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffd930;
+    padding: 2rem;
+
+    &.red-bg {
+      background-color: #cc0009;
+      color: #fff;
+    }
+
+    &.light-brown-bg {
+      background-color: #a98c5b;
+    }
+
+    &.brown-bg {
+      background-color: #b5775a;
+    }
+
+    &.dark-brown-bg {
+      background-color: #604201;
+      color: #fff;
+    }
+
+    &.dark-orange-bg {
+      background-color: #c95007;
+      color: #fff;
+    }
+
+    &.dark-green-bg {
+      background-color: #4a6836;
+      color: #fff;
+    }
+
+    &.dark-blue-bg {
+      background-color: #4a6497;
+      color: #fff;
+    }
+
+    &.blue-bg {
+      background-color: #1052bc;
+      color: #fff;
+    }
+
+    .description-body {
+      min-height: 13rem;
+
+      h3 {
+        line-height: 2.5rem;
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+    }
+
+    button {
+      width: 3.5rem;
+      height: 3.5rem;
+      background-color: #000;
+      @include radius(50%);
+
+      i {
+        color: #fff;
+        font-size: 1.2rem;
+      }
+
+      &.white-btn {
+        background-color: #fff;
+
+        i {
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .product-highlight {
+    color: #ed022a;
+    @extend .product-header;
+  }
+
+  .product-header {
+    font-weight: 700;
+    font-size: $medium-text-size;
+    margin: 0;
+  }
+
+  .product-description {
+    font-size: $medium-text-size;
+    color: $small-text-color;
+    margin: 0;
+  }
+
+  .price {
+    .line-through {
+      text-decoration: line-through;
+    }
+  }
+
+  .more-options {
+    color: $small-text-color;
+    font-size: $medium-text-size;
+  }
+}
+
+.more-ikea {
+  .description-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .description-body {
+      margin-top: 10%;
+      min-height: 10rem;
+
+      h3 {
+        font-size: 1rem;
+        font-weight: 900;
+      }
+
+      p {
+        font-size: $medium-text-size;
+      }
+    }
+
+    button {
+      width: 35%;
+    }
+  }
+}
+
+.more-ideas-gallery {
+  height: 340rem;
+}
+
+.welcome-ikea {
+  font-size: $small-text-size;
+  color: $small-text-color;
+  width: 60%;
+}
+
+@media only screen and (max-width: 992px) {
+  .teaser {
+    .carousel-body {
+      overflow-x: auto !important;
+    }
+  }
+}

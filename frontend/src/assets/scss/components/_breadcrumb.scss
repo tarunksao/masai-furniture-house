@@ -1,0 +1,15 @@
+.breadcrumb-container{
+    margin-bottom: 3rem;
+}
+.breadcrumb-list{
+    padding: 1rem 0;
+}
+
+.bc-breadcrumb__link {
+    text-decoration: none;
+    font-size: .75rem;
+    line-height: 1.5;
+    font-weight: 400;
+    vertical-align: middle;
+    color:$small-text-color;
+}
