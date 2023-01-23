@@ -2,6 +2,9 @@
 
 ### Alotted website :- [ikea.com](https://www.ikea.com/)
 
+
+###Netlify Link : https://mfh.vercel.app/
+
 # Project Members:- 
   1. fw20_1259 - Tarun Kumar Sao (Team Lead)
   2. fw18_1127 - Niranjan Adhik Salunkhe (Member-1)
