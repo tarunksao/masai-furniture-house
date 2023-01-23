@@ -18,7 +18,7 @@
 
 
 
-                                                              Some demo images of our App
+                                                Some demo images of our App
 ![image (15)](https://user-images.githubusercontent.com/101391587/213976997-916b4d2d-1a9b-4173-8e95-c3e48725e890.png)
 ![image (16)](https://user-images.githubusercontent.com/101391587/213977005-d0ee9f09-419a-40b7-8b5e-6fef81facf5a.png)
 ![image (17)](https://user-images.githubusercontent.com/101391587/213977014-b0766f17-7de3-4c6b-a7f1-7399c3842ef1.png)
