@@ -4,6 +4,7 @@
 
 
 ### Deployed Link : https://mfh.vercel.app/
+### Admin Dashboard URL : https://mfh.vercel.app/admin/login
 
 # Project Members:- 
   - Tarun Kumar Sao [https://github.com/tarunksao](https://github.com/tarunksao)
